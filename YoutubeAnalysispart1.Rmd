@@ -31,9 +31,8 @@ You can also embed plots, for example:
 ```{r}
 
 
-# # credentials 
-app_id = '570143920296-jht70h3l3humpltk0i81qr63tmldcplt.apps.googleusercontent.com'
-app_secret = 'I8tnsFROOw9Tsn2ubSRWYFNC'
+app_id = '570143920296-d6n69c7bm713edtm3vffmtq46t0751pm.apps.googleusercontent.com'
+app_secret = 'DB27e-L6XpKcAOx6UyK1hv0i'
 
 
 
@@ -46,6 +45,7 @@ app_secret = 'I8tnsFROOw9Tsn2ubSRWYFNC'
 # credentials 
 
 yt_oauth(app_id = app_id, app_secret = app_secret)
+
 
 # ---fetching YouTube videos with 'bangladesh' in the title---
 # searching for videos that have 'Bangladesh' in the title
@@ -62,7 +62,7 @@ videos_year = videos_year %>% left_join(df, by = 'video_id')
 
 # correcting data type
 videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')]=apply(videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')],2,as.numeric)
-# write.csv(videos_year,'youtube_video_raw+stat_2017-2018.csv', row.names = FALSE)
+ write.csv(videos_year,'youtube_video_raw+stat_2017-2018.csv', row.names = FALSE)
 videos_year
 ```
 

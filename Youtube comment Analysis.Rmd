@@ -19,8 +19,8 @@ library(gridExtra)
 # = Autentication = #
 # # credentials 
 # # credentials 
-app_id = '850242412119-hii8e8n8elvk0moq9h69a58rhapadbgn.apps.googleusercontent.com'
-app_secret = 'vkh2uoTu6fYj8LpAP9ew3FMd'
+app_id = '570143920296-d6n69c7bm713edtm3vffmtq46t0751pm.apps.googleusercontent.com'
+app_secret = 'DB27e-L6XpKcAOx6UyK1hv0i'
 
 
 

@@ -1,0 +1,88 @@
+---
+title: "clustering_text_analysis"
+author: "ismayil"
+date: "2/7/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r start}
+library(tuber)
+app_id = '570143920296-d6n69c7bm713edtm3vffmtq46t0751pm.apps.googleusercontent.com'
+app_secret = 'DB27e-L6XpKcAOx6UyK1hv0i'
+
+
+
+
+# establishing connecting with YouTube
+
+
+
+
+# credentials 
+
+yt_oauth(app_id = app_id, app_secret = app_secret)
+# Category IDs
+# 1 -> Film & Animation 
+# 10 -> Music
+# 17 -> Sports
+# 26 -> Howto & Style
+
+for(j in c(1, 10, 17, 26)){
+
+  # Get list of top 50 videos in US region in the selected category
+  video_list <- list_videos(max_results = 50, region_code = "US", video_category_id = j)
+  
+  # Get a list of Video ID's in the Category which have less than 10000 comments each
+  video_id <- c()
+  for(i in 1:length(video_list$items)){
+    video_stats <- get_stats(video_id = video_list$items[[i]]$id)
+    count <- video_stats$commentCount
+    if(!is.null(count)){
+      if(as.numeric(count) < 10000){
+        video_id <- c(video_id, video_list$items[[i]]$id)
+      }
+    }
+  }
+  
+  # Create a data frame with all the comments combined for the selected Video ID's in the Category
+  comments <- c()
+  for(i in 1:length(video_id)){
+    comments <- rbind(comments
+                      , get_comment_threads(c(video_id = video_id[i]), max_results = 101)[, 1:12]
+                      , method="common")
+  }
+  
+  # Pick 50k rows
+  comments <- comments[1:50000,]
+  
+# Save the results in CSV files
+  if(j == 1)
+    write.csv(comments, "animation_video_comments.csv")
+  if(j == 10)
+    write.csv(comments, "music_video_comments.csv")
+  if(j == 17)
+    write.csv(comments, "sports_video_comments.csv")
+  if(j == 26)
+    write.csv(comments, "howto_video_comments.csv")
+}
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
