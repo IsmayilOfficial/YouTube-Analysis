@@ -6,13 +6,28 @@ output: html_document
 ---
 
 ```{r}
- movies2017 = read.csv('movies_2017-2018.csv')
+movies2017 = read.csv('movies_2017-2018.csv')
  movies2018 = read.csv('movies_2018-2019.csv')
  movies2019 = read.csv('movies_2019-2020.csv')
+movies2020 = read.csv('movies_2020.csv')
+movies2016 = read.csv('movies_2016.csv')
+movies2014 = read.csv('movies2014.csv')
+movies2015 = read.csv('movies_2015.csv')
+travel = read.csv('travel.csv')
+socker = read.csv('socker_2017-2020.csv')
+travel$month<- NULL
+travel$year<- NULL
 
 
-mov=rbind(movies2017,movies2018,movies2019)
-  videos_year=mov
+
+mov=rbind(movies2017,movies2018,movies2019,movies2016,  movies2017,movies2019,movies2020,movies2015)
+#mov=rbind(movies2020,movies2014,movies2016)
+#write.csv(mov,'moviesAll.csv', row.names = FALSE)
+```
+
+
+```{r}
+videos_year=mov
   library(tidyverse)  # data manipulation
 library(cluster)    # clustering algorithms
 #install.packages("factoextra")
@@ -34,6 +49,7 @@ df$thumbnails.high.height<- NULL
 df$dislike_ratio<- NULL
 df$like_ratio<- NULL
 df$description<- NULL
+df$dislikeCount<- NULL
 df$thumbnails.high.url<- NULL
 
 df$channelTitle<- NULL
@@ -56,7 +72,7 @@ distance <- get_dist(df)
 fviz_dist(distance, gradient = list(low = "#00AFBB", mid = "white", high = "#FC4E07"))
 
 k2 <- kmeans(df, centers = 2, nstart = 25)
-str(k2)
+
 
 k2
 
@@ -119,13 +135,14 @@ fviz_gap_stat(gap_stat)
 ```{r}
 set.seed(123)
 final <- kmeans(df, 3, nstart = 25)
+final
 
 ```
 ```{r}
 fviz_cluster(final, data = df)
 ```
 ```{r}
-install.packages("flexclust")
+#install.packages("flexclust")
 
 library("flexclust")
 ```
@@ -137,20 +154,6 @@ table(k2$cluster, k3$cluster)
 randIndex(k2$cluster, k3$cluster, correct = FALSE)
 
 
- randIndex(clust1_label, clust2_label)
+
 ```
 
-
-```{r}
-
-
-
-ct.km <- table(final$cluster,dx$)
-
-
-library(CrossClustering)
-library(mclust)
-
-library(flexclust)
-randIndex(ct.km)
-```

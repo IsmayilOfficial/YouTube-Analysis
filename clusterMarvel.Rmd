@@ -11,17 +11,28 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
- videos_year = read.csv('marvel_2017-2020.csv')
+videos_year = read.csv('marvel_2017-2020.csv')
 df <- na.omit(videos_year)
 videos_year<- na.omit(videos_year)
+
+
+library(dplyr)
+# creating like, dislike, comment ratio
+df = df %>%
+  mutate(like_ratio = likeCount/viewCount) %>% 
+  mutate(dislike_ratio = dislikeCount/viewCount) %>%
+  mutate(comment_ratio = commentCount/viewCount) %>% 
+  mutate(ratio_to_total = viewCount/sum(viewCount, na.rm = TRUE))
+
+#df$dislikeCount<-NULL
+
 df$publishedAt <- NULL
 df$channelId <- NULL
-df$ratio_to_total<- NULL
+
 df$thumbnails.default.url<- NULL
 df$thumbnails.default.width<- NULL
 df$thumbnails.high.height<- NULL
-df$dislike_ratio<- NULL
-df$like_ratio<- NULL
+
 df$description<- NULL
 df$thumbnails.high.url<- NULL
 
@@ -31,20 +42,35 @@ df$thumbnails.medium.width<- NULL
 df$thumbnails.medium.url<- NULL
 df$title<- NULL
 df$video_id<- NULL
-df$comment_ratio<- NULL
+df$dislikeCount<- NULL
+
+#df$commentCount<- NULL
 df$thumbnails.default.height<- NULL
 df$thumbnails.medium.height<- NULL
 df$thumbnails.high.width<- NULL
 df$favoriteCount<- NULL
 
+df$ratio_to_total<- NULL
+df$comment_ratio <- NULL
+df$like_ratio <- NULL
+df$dislike_ratio <- NULL
 
+
+
+
+
+```
+
+
+```{r}
 df <- scale(df)
 library(factoextra)
-distance <- get_dist(df)
-fviz_dist(distance, gradient = list(low = "#00AFBB", mid = "white", high = "#FC4E07"))
 
-k2 <- kmeans(df, centers = 2, nstart = 25)
-str(k2)
+
+
+k2 <- kmeans(df, centers = 3
+             , nstart = 25)
+
 
 k2
 
@@ -52,6 +78,7 @@ k2
 
 ```{r}
 fviz_cluster(k2, data = df)
+
 ```
 
 
@@ -106,7 +133,8 @@ fviz_gap_stat(gap_stat)
 ```
 ```{r}
 set.seed(123)
-final <- kmeans(df, 2, nstart = 25)
+final <- kmeans(df, 3, nstart = 25)
+final
 
 ```
 ```{r}
@@ -117,12 +145,8 @@ fviz_cluster(final, data = df)
 
 
 
-ct.km <- table(k3$cluster,k4$cluster)
 
 
-library(CrossClustering)
-library(mclust)
+randIndex(final$cluster,k4$cluster, correct = FALSE)
 
-library(flexclust)
-randIndex(ct.km)
 ```

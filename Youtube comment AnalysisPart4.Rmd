@@ -32,7 +32,7 @@ library(plyr)
 library(dplyr)
 
 
-videos_year <- yt_search("Comedy", published_after = "2018-6-01T00:00:00Z", published_before = "2019-1-1T00:00:00Z")
+videos_year <- yt_search("", published_after = "2016-0-01T00:00:00Z", published_before = "2017-1-1T00:00:00Z")
 # fetching video statistics for all videos (2018-2019)
 videostats = lapply(as.character(videos_year$video_id), function(x){
   get_stats(video_id = x)
@@ -48,9 +48,11 @@ videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'comme
  write.csv(videos_year,'youtube_video_raw+stat_2018-2019.csv', row.names = FALSE)
 ```
 ```{r}
+library(plyr)
+library(dplyr)
 
-videos_year <- yt_search("Socker", published_after = "2017-6-01T00:00:00Z", published_before = "2020-1-1T00:00:00Z")
-# fetching video statistics for all videos (2018-2019)
+videos_year <- yt_search("", published_after = "2016-01-01T00:00:00Z", published_before = "2017-1-1T00:00:00Z",video_type="movie")
+
 videostats = lapply(as.character(videos_year$video_id), function(x){
   get_stats(video_id = x)
 })
@@ -62,7 +64,7 @@ videos_year = videos_year %>% left_join(df, by = 'video_id')
 
 # correcting data type
 videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')]=apply(videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')],2,as.numeric)
- write.csv(videos_year,'socker_2017-2020.csv', row.names = FALSE)
+ write.csv(videos_year,'movies_2016.csv', row.names = FALSE)
 ```
 
 ```{r}
@@ -83,7 +85,10 @@ app_secret = 'GrnaU9Y47SJnI6tmrQAOeHCO'
 # credentials 
 
 yt_oauth(app_id = app_id, app_secret = app_secret)
-videos_year <- yt_search("Marvel", published_after = "2017-6-01T00:00:00Z", published_before = "2020-1-1T00:00:00Z")
+
+
+videos_year <- yt_search("movies", published_after = "2015-1-01T00:00:00Z", published_before = "2015-3-1T00:00:00Z"
+)
 # fetching video statistics for all videos (2018-2019)
 videostats = lapply(as.character(videos_year$video_id), function(x){
   get_stats(video_id = x)
@@ -96,11 +101,11 @@ videos_year = videos_year %>% left_join(df, by = 'video_id')
 
 # correcting data type
 videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')]=apply(videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')],2,as.numeric)
- write.csv(videos_year,'marvel_2017-2020.csv', row.names = FALSE)
+ write.csv(videos_year,'movies_2015.csv', row.names = FALSE)
 ```
 ```{r}
 
-videos_year <- yt_search("movies", published_after = "2017-6-01T00:00:00Z", published_before = "2018-1-1T00:00:00Z")
+videos_year <- yt_search("movies", published_after = "2020-1-01T00:00:00Z", published_before = "2020-3-1T00:00:00Z")
 
 videostats = lapply(as.character(videos_year$video_id), function(x){
   get_stats(video_id = x)
@@ -113,7 +118,7 @@ videos_year = videos_year %>% left_join(df, by = 'video_id')
 
 # correcting data type
 videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')]=apply(videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')],2,as.numeric)
- write.csv(videos_year,'movies_2017-2018.csv', row.names = FALSE)
+ write.csv(videos_year,'movies2020.csv', row.names = FALSE)
 ```
 
 ```{r}

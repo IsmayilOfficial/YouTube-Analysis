@@ -37,7 +37,7 @@ df$thumbnails.medium.height<- NULL
 df$thumbnails.high.width<- NULL
 df$favoriteCount<- NULL
 
-
+df$dislikeCount <- NULL
 df <- scale(df)
 library(factoextra)
 distance <- get_dist(df)
@@ -106,7 +106,8 @@ fviz_gap_stat(gap_stat)
 ```
 ```{r}
 set.seed(123)
-final <- kmeans(df, 2, nstart = 25)
+final <- kmeans(df, 3, nstart = 25)
+final
 
 ```
 ```{r}
