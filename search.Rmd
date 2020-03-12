@@ -17,9 +17,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(tuber)
-app_id = '637343645099-ngdppd65ohdecs5lp4utoch48utr0nhv.apps.googleusercontent.com'
+app_id = '513902774051-nfunqdrtndpb7jkp1t069rbcut20vif6.apps.googleusercontent.com'
 
-app_secret = 'WqQpVU82xWuEp8MizGmHg69u'
+app_secret = '1Tw5Sv95wRU1K5zV3FiwMfLG'
 
 
 
@@ -42,8 +42,7 @@ yt_oauth(app_id = app_id, app_secret = app_secret)
 
 
 
-videos_year <- yt_search(term = "Science & Technology", published_before = "2019-12-31T00:00:00Z", 
-                               published_after = "2019-01-01T00:00:00Z")
+videos_year <- yt_search(term = "technology ",published_after = "2000-1-01T00:00:00Z", published_before = "2020-1-1T00:00:00Z")
 
 videostats = lapply(as.character(videos_year$video_id), function(x){
   get_stats(video_id = x)
@@ -93,7 +92,7 @@ videos_year$title = gsub(" $", "", videos_year$title)  # Lagging blanks
 videos_year$title = gsub(" +", " ", videos_year$title) # General spaces 
 videos_year$title = tolower(videos_year$title) # lowering all letters
 
-write.csv(videos_year,'Science_Technology2019.csv', row.names = FALSE)
+write.csv(videos_year,'technology.csv', row.names = FALSE)
 ```
 
 

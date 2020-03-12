@@ -127,12 +127,23 @@ stringi::stri_match_first_regex(webpage, "length_seconds\":\"(.*?)\",")[[2]]
 #[1] "3118"
 
 ```
-```{r}
-get_video_details(video_id = "yJXTXN4xrI8", part = "contentDetails")
+```{r duration}
+
+
+((get_video_details(video_id = readline(prompt="Enter video id: "), part = "contentDetails"))$items)[[1]]$contentDetails$duration
+
+
 
 ```
 
 ```{r}
-get_channel_stats(channel_id="UCMtFAi84ehTSYSE9XoHefig")
+videos<-read.csv("Pets_Animals2019Duration.csv")
+durations = lapply(as.character(videos$video_id), function(x){
+  ((get_video_details(video_id = x, part = "contentDetails"))$items)[[1]]$contentDetails$duration
+})
+durations
+
+
+
 ```
 
