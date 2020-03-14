@@ -1,0 +1,149 @@
+---
+title: "Thesis Experiments part 2"
+author: "Ismayil Tahmazov"
+date: "September 27, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r library}
+
+#install.packages("plyr")
+library(plyr)
+library(tuber)
+library(tidyverse)
+library(lubridate)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r}
+
+
+app_id = '570143920296-d6n69c7bm713edtm3vffmtq46t0751pm.apps.googleusercontent.com'
+app_secret = 'DB27e-L6XpKcAOx6UyK1hv0i'
+
+
+
+
+# establishing connecting with YouTube
+
+
+
+
+# credentials 
+
+yt_oauth(app_id = app_id, app_secret = app_secret)
+
+
+# ---fetching YouTube videos with 'bangladesh' in the title---
+# searching for videos that have 'Bangladesh' in the title
+videos_year <- yt_search(term="",type="video", channel_id = "UC0WP5P-ufpRfjbNrmOWwLBQ")
+# fetching video statistics for all videos (2017-2018)
+videostats = lapply(as.character(videos_year$video_id), function(x){
+  get_stats(video_id = x)
+})
+df = ldply(videostats, data.frame)
+
+# merging videos stats with the main file:  videos_year
+colnames(df)[1] = 'video_id' # renaming 'id' as video_id so that it matches same coluimn in main table
+videos_year = videos_year %>% left_join(df, by = 'video_id')
+
+# correcting data type
+videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')]=apply(videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')],2,as.numeric)
+ write.csv(videos_year,'youtube_video_raw+stat_2017-2018.csv', row.names = FALSE)
+videos_year
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+videos_year$publishedAt = as.Date(videos_year$publishedAt)
+str(videos_year$publishedAt)
+```
+
+```{r}
+# creating new variables 'year' and 'month'
+videos_year = videos_year %>% mutate(month = month(publishedAt)) %>% mutate(year = year(publishedAt))
+```
+```{r}
+# cleaning video titles
+videos_year$title= gsub("<.*?>","", videos_year$title) #removing html tags
+videos_year$title= gsub("[[:punct:]]", " ", videos_year$title) #removing html tags
+videos_year$title = gsub("[ |\t]{2,}", " ", videos_year$title)  # Remove tabs
+videos_year$title = gsub("^ ", "", videos_year$title)  # Leading blanks
+videos_year$title = gsub(" $", "", videos_year$title)  # Lagging blanks
+videos_year$title = gsub(" +", " ", videos_year$title) # General spaces 
+videos_year$title = tolower(videos_year$title) # lowering all letters
+head(videos_year$title,5)
+```
+```{r}
+#month wise video posting (data = videos_year)
+videos_year %>% 
+  ggplot(aes(factor(month))) + 
+  geom_bar() + 
+  ggtitle(label = 'Month wise frequency of video posting',subtitle = 'Year 2017 to 2018') +
+  xlab(label = 'Serial no of month (e.g.: 1 = Jan, 12 = Dec)')
+```
+```{r}
+# most viewed videos
+summary(videos_year)
+x = filter(videos_year,videos_year$viewCount>12948737 )
+view(x)
+view(videos_year)
+x %>% arrange(desc(viewCount)) %>% head(20) %>%
+  mutate(title = strtrim(title, 25)) %>%
+  mutate(title = reorder(title,viewCount)) %>% top_n(20) %>% 
+  ggplot(aes(as.factor(title), (viewCount/1000000), fill = factor(month))) + 
+  geom_col()  + 
+  scale_x_discrete() +
+  coord_flip() +
+  ggtitle(label = 'Top 20 most viewed videos') + 
+  xlab(label = 'Video title') + 
+  ylab(label = 'Number of views (in millions)') +
+  labs(fill = 'Month', caption = '* Video titles have been truncated')
+```
+```{r}
+library(RCurl)
+library(stringi)
+
+url <- "https://www.youtube.com/watch?v=NWHfY_lvKIQ"
+
+# Getting HTML 
+webpage <- RCurl::getURL(url)
+
+# Extracting video length (in seconds)
+stringi::stri_match_first_regex(webpage, "length_seconds\":\"(.*?)\",")[[2]]
+#[1] "3118"
+
+```
+```{r duration}
+
+
+((get_video_details(video_id = readline(prompt="Enter video id: "), part = "contentDetails"))$items)[[1]]$contentDetails$duration
+
+
+
+```
+
+```{r}
+videos<-read.csv("Pets_Animals2019Duration.csv")
+durations = lapply(as.character(videos$video_id), function(x){
+  ((get_video_details(video_id = x, part = "contentDetails"))$items)[[1]]$contentDetails$duration
+})
+durations
+
+
+
+```
+

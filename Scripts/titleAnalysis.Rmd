@@ -52,10 +52,11 @@ tidy_dickens <- videos%>%
   anti_join(stop_words)
 ```
 ```{r}
+
 x<- read.csv("animation.csv")
 library(stringr)
-title_length<- str_count(x$description, '\\w+')
-ca <- as.data.frame(y)
+description_length<- str_count(x$description, '\\w+')
+ca <- as.data.frame(description_length)
 write.csv(ca,"xama.csv")
 
 ```

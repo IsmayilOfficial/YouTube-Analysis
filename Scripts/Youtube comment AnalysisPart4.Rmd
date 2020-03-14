@@ -1,0 +1,731 @@
+---
+title: "YoutubeAnalysisPart3"
+author: "Ismayil Tahmazov"
+date: "October 18, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+library(tuber)
+app_id = '570143920296-d6n69c7bm713edtm3vffmtq46t0751pm.apps.googleusercontent.com'
+app_secret = 'DB27e-L6XpKcAOx6UyK1hv0i'
+
+
+
+
+# establishing connecting with YouTube
+
+
+
+
+# credentials 
+
+yt_oauth(app_id = app_id, app_secret = app_secret)
+
+
+```
+```{r}
+library(plyr)
+library(dplyr)
+
+
+videos_year <- yt_search("", published_after = "2016-0-01T00:00:00Z", published_before = "2017-1-1T00:00:00Z")
+# fetching video statistics for all videos (2018-2019)
+videostats = lapply(as.character(videos_year$video_id), function(x){
+  get_stats(video_id = x)
+})
+df = ldply(videostats, data.frame)
+
+# merging videos stats with the main file:  videos_year
+colnames(df)[1] = 'video_id' # renaming 'id' as video_id so that it matches same coluimn in main table
+videos_year = videos_year %>% left_join(df, by = 'video_id')
+
+# correcting data type
+videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')]=apply(videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')],2,as.numeric)
+ write.csv(videos_year,'youtube_video_raw+stat_2018-2019.csv', row.names = FALSE)
+```
+```{r}
+library(plyr)
+library(dplyr)
+
+videos_year <- yt_search("", published_after = "2016-01-01T00:00:00Z", published_before = "2017-1-1T00:00:00Z",video_type="movie")
+
+videostats = lapply(as.character(videos_year$video_id), function(x){
+  get_stats(video_id = x)
+})
+df = ldply(videostats, data.frame)
+
+# merging videos stats with the main file:  videos_year
+colnames(df)[1] = 'video_id' # renaming 'id' as video_id so that it matches same coluimn in main table
+videos_year = videos_year %>% left_join(df, by = 'video_id')
+
+# correcting data type
+videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')]=apply(videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')],2,as.numeric)
+ write.csv(videos_year,'movies_2016.csv', row.names = FALSE)
+```
+
+```{r}
+
+library(tuber)
+app_id = '50919511420-5qu734hmrotoatlmv7mm28vds4nj5avj.apps.googleusercontent.com'
+
+app_secret = 'GrnaU9Y47SJnI6tmrQAOeHCO'
+
+
+
+
+# establishing connecting with YouTube
+
+
+
+
+# credentials 
+
+yt_oauth(app_id = app_id, app_secret = app_secret)
+
+
+videos_year <- yt_search("movies", published_after = "2015-1-01T00:00:00Z", published_before = "2015-3-1T00:00:00Z"
+)
+# fetching video statistics for all videos (2018-2019)
+videostats = lapply(as.character(videos_year$video_id), function(x){
+  get_stats(video_id = x)
+})
+df = ldply(videostats, data.frame)
+
+# merging videos stats with the main file:  videos_year
+colnames(df)[1] = 'video_id' # renaming 'id' as video_id so that it matches same coluimn in main table
+videos_year = videos_year %>% left_join(df, by = 'video_id')
+
+# correcting data type
+videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')]=apply(videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')],2,as.numeric)
+ write.csv(videos_year,'movies_2015.csv', row.names = FALSE)
+```
+```{r}
+
+videos_year <- yt_search("movies", published_after = "2020-1-01T00:00:00Z", published_before = "2020-3-1T00:00:00Z")
+
+videostats = lapply(as.character(videos_year$video_id), function(x){
+  get_stats(video_id = x)
+})
+df = ldply(videostats, data.frame)
+
+# merging videos stats with the main file:  videos_year
+colnames(df)[1] = 'video_id' # renaming 'id' as video_id so that it matches same coluimn in main table
+videos_year = videos_year %>% left_join(df, by = 'video_id')
+
+# correcting data type
+videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')]=apply(videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')],2,as.numeric)
+ write.csv(videos_year,'movies2020.csv', row.names = FALSE)
+```
+
+```{r}
+
+library(tuber)
+app_id = '637343645099-ngdppd65ohdecs5lp4utoch48utr0nhv.apps.googleusercontent.com'
+
+app_secret = 'WqQpVU82xWuEp8MizGmHg69u'
+
+
+
+
+# establishing connecting with YouTube
+
+
+
+
+# credentials 
+
+yt_oauth(app_id = app_id, app_secret = app_secret)
+
+videos_year <- yt_search("movies", published_after = "2018-6-01T00:00:00Z", published_before = "2019-1-1T00:00:00Z")
+
+videostats = lapply(as.character(videos_year$video_id), function(x){
+  get_stats(video_id = x)
+})
+df = ldply(videostats, data.frame)
+
+# merging videos stats with the main file:  videos_year
+colnames(df)[1] = 'video_id' # renaming 'id' as video_id so that it matches same coluimn in main table
+videos_year = videos_year %>% left_join(df, by = 'video_id')
+
+# correcting data type
+videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')]=apply(videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')],2,as.numeric)
+ write.csv(videos_year,'movies_2018-2019.csv', row.names = FALSE)
+
+```
+```{r}
+videos_year <- yt_search("movies", published_after = "2019-6-01T00:00:00Z", published_before = "2020-1-1T00:00:00Z")
+
+videostats = lapply(as.character(videos_year$video_id), function(x){
+  get_stats(video_id = x)
+})
+df = ldply(videostats, data.frame)
+
+# merging videos stats with the main file:  videos_year
+colnames(df)[1] = 'video_id' # renaming 'id' as video_id so that it matches same coluimn in main table
+videos_year = videos_year %>% left_join(df, by = 'video_id')
+
+# correcting data type
+videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')]=apply(videos_year[,c('viewCount', 'likeCount', 'dislikeCount', 'favoriteCount', 'commentCount')],2,as.numeric)
+ write.csv(videos_year,'movies_2019-2020.csv', row.names = FALSE)
+```
+
+```{r}
+# converting into data type 'date'
+videos_year$publishedAt = as.Date(videos_year$publishedAt)
+str(videos_year$publishedAt)
+
+
+ write.csv(videos_year,'youtube_video_raw+stat_2018-2019.csv', row.names = FALSE)
+```
+
+```{r}
+#install.packages("lubridate")
+library(lubridate)
+# creating new variables 'year' and 'month'
+videos_year = videos_year %>% mutate(month = month(publishedAt)) %>% mutate(year = year(publishedAt))
+
+ write.csv(videos_year,'youtube_video_raw+stat_2018-2019.csv', row.names = FALSE)
+ videos_year=filter(videos_year,videos_year$viewCount<50000)
+ 
+ ggplot(videos_year, aes(x = videos_year$viewCount, y = videos_year$likeCount)) +
+    geom_point()
+```
+
+```{r}
+
+library(tidyverse)  # data manipulation
+library(cluster)    # clustering algorithms
+#install.packages("factoextra")
+library(factoextra) # clustering algorithms & visualization
+
+
+```
+
+```{r}
+# cleaning video titles
+videos_year$title= gsub("<.*?>","", videos_year$title) #removing html tags
+videos_year$title= gsub("[[:punct:]]", " ", videos_year$title) #removing html tags
+videos_year$title = gsub("[ |\t]{2,}", " ", videos_year$title)  # Remove tabs
+videos_year$title = gsub("^ ", "", videos_year$title)  # Leading blanks
+videos_year$title = gsub(" $", "", videos_year$title)  # Lagging blanks
+videos_year$title = gsub(" +", " ", videos_year$title) # General spaces 
+videos_year$title = tolower(videos_year$title) # lowering all letters
+head(videos_year$title,5)
+write.csv(videos_year,'cleaned_youtube_video_2018-2019.csv', row.names = FALSE)
+```
+
+```{r}
+df <- na.omit(videos_year)
+df$publishedAt <- NULL
+df$channelId <- NULL
+df$ratio_to_total<- NULL
+df$thumbnails.default.url<- NULL
+df$thumbnails.default.width<- NULL
+df$thumbnails.high.height<- NULL
+df$dislike_ratio<- NULL
+df$like_ratio<- NULL
+df$description<- NULL
+df$thumbnails.high.url<- NULL
+
+df$channelTitle<- NULL
+df$liveBroadcastContent<- NULL
+df$thumbnails.medium.width<- NULL
+df$thumbnails.medium.url<- NULL
+df$title<- NULL
+df$video_id<- NULL
+df$comment_ratio<- NULL
+df$thumbnails.default.height<- NULL
+df$thumbnails.medium.height<- NULL
+df$thumbnails.high.width<- NULL
+df$favoriteCount<- NULL
+
+
+df <- scale(df)
+
+distance <- get_dist(df)
+fviz_dist(distance, gradient = list(low = "#00AFBB", mid = "white", high = "#FC4E07"))
+
+k2 <- kmeans(df, centers = 2, nstart = 25)
+str(k2)
+
+k2
+
+```
+
+```{r}
+fviz_cluster(k2, data = df)
+```
+
+
+```{r}
+k3 <- kmeans(df, centers = 3, nstart = 25)
+k4 <- kmeans(df, centers = 4, nstart = 25)
+k5 <- kmeans(df, centers = 5, nstart = 25)
+
+# plots to compare
+p1 <- fviz_cluster(k2, geom = "point", data = df) + ggtitle("k = 2")
+p2 <- fviz_cluster(k3, geom = "point",  data = df) + ggtitle("k = 3")
+p3 <- fviz_cluster(k4, geom = "point",  data = df) + ggtitle("k = 4")
+p4 <- fviz_cluster(k5, geom = "point",  data = df) + ggtitle("k = 5")
+
+library(gridExtra)
+grid.arrange(p1, p2, p3, p4, nrow = 2)
+```
+```{r}
+set.seed(123)
+gap_stat <- clusGap(df, FUN = kmeans, nstart = 25,
+                    K.max = 10, B = 50)
+# Print the result
+print(gap_stat, method = "firstmax")
+```
+```{r}
+# function to compute average silhouette for k clusters
+avg_sil <- function(k) {
+  km.res <- kmeans(df, centers = k, nstart = 25)
+  ss <- silhouette(km.res$cluster, dist(df))
+  mean(ss[, 3])
+}
+
+# Compute and plot wss for k = 2 to k = 15
+k.values <- 2:20
+
+# extract avg silhouette for 2-15 clusters
+avg_sil_values <- map_dbl(k.values, avg_sil)
+
+plot(k.values, avg_sil_values,
+       type = "b", pch = 19, frame = FALSE, 
+       xlab = "Number of clusters K",
+       ylab = "Average Silhouettes")
+```
+```{r}
+fviz_nbclust(df, kmeans, method = "silhouette")
+```
+
+
+```{r}
+fviz_gap_stat(gap_stat)
+```
+```{r}
+set.seed(123)
+final <- kmeans(df, 3, nstart = 25)
+
+```
+```{r}
+fviz_cluster(final, data = df)
+```
+
+```{r}
+
+
+ct.km <- table(videos_year$viewCount,final$cluster)
+
+library(flexclust)
+randIndex(ct.km)
+```
+
+```{r}
+ #videos_year = read.csv('cleaned_youtube_video_2018-2019.csv')
+# creating like, dislike, comment ratio
+videos_year = videos_year %>%
+  mutate(like_ratio = likeCount/viewCount) %>% 
+  mutate(dislike_ratio = dislikeCount/viewCount) %>%
+  mutate(comment_ratio = commentCount/viewCount) %>% 
+  mutate(ratio_to_total = viewCount/sum(viewCount, na.rm = TRUE))
+write.csv(videos_year,'cleaned_youtube_video_2018-2019.csv', row.names = FALSE)
+
+# names(videos_year)
+```
+
+```{r}
+library(ggplot2)
+#month wise video posting (data = videos_year)
+videos_year %>% 
+  ggplot(aes(factor(month))) + 
+  geom_bar() + 
+  ggtitle(label = 'Month wise frequency of video posting',subtitle = 'Year 2017 to 2018') +
+  xlab(label = 'Serial no of month (e.g.: 1 = Jan, 12 = Dec)')
+```
+```{r}
+# most viewed videos
+videos_year %>% arrange(desc(viewCount)) %>% head(20) %>%
+  mutate(title = strtrim(title, 25)) %>%
+  mutate(title = reorder(title,viewCount)) %>% top_n(20) %>% 
+  ggplot(aes(as.factor(title), (viewCount/1000000), fill = factor(month))) + 
+  geom_col()  + 
+  scale_x_discrete() +
+  coord_flip() +
+  ggtitle(label = 'Top 20 most viewed videos') + 
+  xlab(label = 'Video title') + 
+  ylab(label = 'Number of views (in millions)') +
+  labs(fill = 'Month', caption = '* Video titles have been truncated')
+```
+```{r}
+library(dplyr)
+#install.packages("textmineR")
+library(textmineR)
+#install.packages("SnowballC")
+library(SnowballC)
+library(tm)
+videos_year$title = removeWords(as.character(videos_year$title), stopwords('english'))
+corpus = Corpus(VectorSource(videos_year$title))
+
+dtm = DocumentTermMatrix(corpus)
+dtm
+```
+
+```{r}
+doc.length = apply(dtm, 1, sum)
+dtm = dtm[doc.length > 0,]
+inspect(dtm[10:11,])
+```
+```{r}
+freq = colSums(as.matrix(dtm))
+length(freq)
+
+```
+
+```{r}
+ord = order(freq, decreasing = TRUE)
+freq[head(ord, n = 20)]
+```
+
+```{r}
+#install.packages("tibble")
+library(tibble)
+library(dplyr)
+library(dplyr)
+#install.packages("textmineR")
+library(textmineR)
+#install.packages("SnowballC")
+library(SnowballC)
+library(tm)
+#library 'tibble' provides the rowname_to_columns to name row names column
+df1=as.data.frame(findAssocs(dtm,'central',.24)) %>% rownames_to_column("words")
+df2=as.data.frame(findAssocs(dtm,'movies',.24)) %>% rownames_to_column("words")
+df3=as.data.frame(findAssocs(dtm,'video',.30)) %>% rownames_to_column("words")
+df4=as.data.frame(findAssocs(dtm,'lab',.28)) %>% rownames_to_column("words")
+df5=as.data.frame(findAssocs(dtm,'anime',.24)) %>% rownames_to_column("words")
+df6=as.data.frame(findAssocs(dtm,'action movies',.40)) %>% rownames_to_column("words")
+
+#correlation values have been varied intentionally to restrict the number of outputs
+library(tidyr)
+library(ggplot2)
+df = df1 %>% full_join(df2, by = 'words') %>% full_join(df3, by = 'words') %>% full_join(df4, by = 'words') %>% full_join(df5, by = 'words')  %>% full_join(df6, by = 'words')
+df = gather(df, "key",'n',2:7)
+df %>% ggplot(aes(words, n, fill = factor(key))) + geom_col() + coord_flip() + 
+  labs(x = "Counts", y = "Words", fill = "Topic")
+```
+```{r}
+videos_year %>% count(channelTitle) %>% arrange(desc(n)) %>%
+  mutate(channelTitle = reorder(channelTitle, n)) %>% head(10) %>%
+  ggplot(aes(channelTitle, n)) + 
+  geom_col()  + 
+  scale_x_discrete() +
+  coord_flip() +
+  ggtitle(label = 'Top 10 chennels with most video uploads') + 
+  xlab(label = 'Channel name') + 
+  ylab(label = 'Number of videos') +
+  labs(fill = 'Ratio to the total video posted')
+
+```
+```{r}
+library(grid)
+library(gridExtra)
+p1=videos_year %>% arrange(desc(likeCount)) %>% head(10) %>%
+    mutate(title = strtrim(title, 25)) %>%
+  mutate(title = reorder(title,likeCount)) %>%
+  ggplot(aes(title, likeCount)) + geom_col()+ xlab(label="")+ ggtitle(label = 'Top 10 most liked videos') +  theme(axis.text.x=element_text(angle=45,hjust=1))
+
+p2=videos_year %>% arrange(desc(dislikeCount)) %>% head(10) %>% 
+    mutate(title = strtrim(title, 25)) %>%
+  mutate(title = reorder(title,dislikeCount)) %>%
+  ggplot(aes(title, dislikeCount)) + geom_col()  +  xlab(label = "")+ ggtitle(label = 'Top 10 most disliked videos') + theme(axis.text.x=element_text(angle=45,hjust=1)) + 
+  labs(caption = '* Video titles have been truncated')
+  
+grid.arrange(p1,p2, ncol = 2)
+```
+```{r}
+p1=videos_year %>%
+  ggplot(aes(likeCount,dislikeCount)) +
+  geom_jitter(alpha = 0.4, shape = 1) + 
+  labs(subtitle = 'All records') +  
+  xlab(label = 'Count of likes') + ylab(label = 'Count of dislikes')
+
+quantile(videos_year$likeCount, na.rm = TRUE)
+```
+
+```{r}
+quantile(videos_year$dislikeCount, na.rm = TRUE)
+```
+
+```{r}
+p2=videos_year %>% filter(likeCount <= 1241 & likeCount >= 44 & dislikeCount <= 137  & dislikeCount >= 4) %>%
+  ggplot(aes(likeCount,dislikeCount)) +
+  geom_jitter(alpha = 0.4, shape = 1) + 
+  labs(subtitle = 'Both lowest and highest quantile values removed') +  
+  xlab(label = 'Count of likes') + ylab(label = 'Count of dislikes')
+
+grid.arrange(p1,p2, ncol = 2, top = 'Likes vs Dislikes')
+```
+
+```{r}
+videos_year %>% arrange(desc(commentCount)) %>% head(10) %>%
+    mutate(title = strtrim(title, 25)) %>%
+  mutate(title = reorder(title, commentCount)) %>%
+  ggplot(aes(title, commentCount)) + geom_col()+ ggtitle(label = 'Top 10 most commented videos') +xlab(label="")+ coord_flip() + 
+   theme(plot.title = element_text(hjust = -0.45, vjust=2.12)) +
+  labs(caption = '* Video titles have been truncated')
+```
+
+```{r}
+videos_year = videos_year %>% mutate(like_dislike = round(likeCount/dislikeCount),2) 
+videos_year %>% arrange(desc(commentCount)) %>% head(10) %>%
+    mutate(title = strtrim(title, 25)) %>%
+  mutate(title = reorder(title, commentCount)) %>%
+  ggplot(aes(title, commentCount, fill = like_dislike)) + geom_col()+ xlab(label="")+ coord_flip() + ggtitle(label = 'Top 10 most commented videos with likes/dislike ratio') + 
+  scale_fill_continuous("Likes to Dislikes") + 
+  labs(caption = '* Video titles have been truncated')
+```
+```{r}
+videos_year %>% filter(dislikeCount <3000 & likeCount <20000) %>%
+  mutate(comment_cat = ifelse(commentCount <= 1000, '< or = 1000', 
+                              ifelse(commentCount <= 2000, '1000 to 2000',
+                                     ifelse(commentCount <= 3000, '2000 to 3000', 'above 3000')))) %>% drop_na() %>%
+  ggplot(aes(likeCount, dislikeCount, color = comment_cat)) + 
+  geom_point(size = 3,alpha = 0.4)  + 
+  ggtitle(label = 'Likes vs Dislikes', subtitle = 'Videos with upper extreme values in likes and dislikes not considered') + 
+  scale_fill_discrete(name = 'Comment count category')
+```
+
+```{r}
+cor(videos_year$likeCount, videos_year$commentCount, use = 'complete')
+```
+
+```{r}
+cor(videos_year$dislikeCount, videos_year$commentCount, use = 'complete')
+```
+
+```{r}
+videos_year=videos_year %>% 
+  mutate(labels = ifelse(grepl(paste(c("central",'movies','video','anime'), collapse = '|'),title), 'central',
+                         (ifelse(grepl("anime",title), 'videos',
+                                 (ifelse(grepl('animal',title), 'popular',
+                                      (ifelse(grepl(paste(c("battle",'buzz','comedy'),collapse = '|'),title), 'videos',
+                                              ifelse(grepl(paste(c('cricket','press','post','conference'), collapse = "|"), title),'cricket',NA )))))))))
+
+videos_year=videos_year %>% 
+  mutate(labels = ifelse(grepl(paste(df1$words, collapse = '|'),title), 'comedy',
+                         (ifelse(grepl(paste(df2$words, collapse = '|'),title), 'hit',
+                                 (ifelse(grepl('skydance',title), 'dance',
+                                      (ifelse(grepl(paste(df4$words,collapse = '|'),title), 'popular',
+                                              ifelse(grepl(paste(df6$words, collapse = "|"), title),'cricket',NA )))))))))
+
+summary(factor(videos_year$labels))
+```
+```{r}
+# function to fetch comments of specific cateogry of video
+fetchComments = function(dataset, keyword){
+  df = dataset %>% filter(labels == keyword) %>% 
+    arrange(desc(commentCount)) %>% head(10)
+  comments = lapply(as.character(df$video_id), function(x){
+    get_comment_threads(c(video_id = x), text_format = 'plainText')
+  })
+  comments = ldply(comments, data.frame) %>% select(videoId, textDisplay, likeCount, publishedAt)
+  comments$textDisplay = as.character(comments$textDisplay)
+  comments$label = keyword
+
+  return(comments)
+  
+}
+
+
+comment_anime = fetchComments(videos_year, 'comedy')
+comment_central = fetchComments(videos_year, 'hit')
+comment_popular = fetchComments(videos_year, 'popular')
+
+
+video_comments = rbind(comment_anime,comment_central,comment_popular)
+# write.csv(video_comments,'video_comments_top10videos_four_categories.csv', row.names = FALSE)
+
+```
+```{r}
+#video_comments=read.csv('video_comments_top10videos_four_categories.csv')
+summary(video_comments$label)
+```
+```{r}
+video_comments$publishedAt = as.Date(video_comments$publishedAt) 
+video_comments= video_comments %>% mutate(tidy_date = floor_date(publishedAt, unit = "month"))
+summary(video_comments$tidy_date)
+```
+```{r}
+# cleaning comments
+head(video_comments$textDisplay,5)
+```
+```{r}
+video_comments$textDisplay <- iconv(video_comments$textDisplay, to = "ASCII", sub = " ") # convert to ASCII characters to remove any text written using anything other than plain english letter e.g. bengali words
+video_comments$textDisplay= gsub("<.*?>","", video_comments$textDisplay) #removing html tags
+video_comments$textDisplay= gsub("[[:punct:]]", " ", video_comments$textDisplay) #removing html tags
+video_comments$textDisplay = gsub("[ |\t]{2,}", " ", video_comments$textDisplay)  # Remove tabs
+video_comments$textDisplay = gsub("^ ", "", video_comments$textDisplay)  # Leading blanks
+video_comments$textDisplay = gsub(" $", "", video_comments$textDisplay)  # Lagging blanks
+video_comments$textDisplay = gsub(" +", " ", video_comments$textDisplay) # General spaces 
+video_comments$textDisplay = tolower(video_comments$textDisplay) # lowering all letters
+head(video_comments$textDisplay,5)
+```
+```{r}
+# video_comments=read.csv('cleaned_video_comments_top10videos_four_categories.csv')
+# calculating labelwise trend of video posting
+video_comments %>%
+  group_by(tidy_date) %>%
+  mutate(total_videos_month = n()) %>%
+  ungroup() %>%
+  count(tidy_date, label, total_videos_month) %>% 
+  mutate(percent_video_label = n/total_videos_month) %>%
+  ggplot(aes(tidy_date, percent_video_label, color = label, group = 1)) +         facet_wrap(~label)+ geom_line(size = 1) +
+  scale_x_date(date_labels="%b %y",date_breaks  ="2 month") +    
+  theme(axis.text.x=element_text(angle=45,hjust=1))+
+  ggtitle(label = 'Month wise frequency of comments') + 
+  xlab(label = 'Month') + 
+  ylab(label = 'Percentage')
+```
+```{r}
+# fetching video poblishing date from the old dataset
+video_comments = video_comments %>% left_join(videos_year[,c('video_id','publishedAt')], by = c('videoId' = 'video_id'), suffix = c('_comment','_video')) 
+# creating new variable with the difference between video posting date and comment posting date
+video_comments = video_comments %>% 
+  mutate(post_comm_gap = publishedAt_comment - publishedAt_video)
+
+p1=video_comments %>%
+  group_by(post_comm_gap) %>%
+  mutate(total_videos = n()) %>%
+  ungroup() %>% 
+  ggplot(aes(post_comm_gap, total_videos)) +         
+  facet_wrap(~label)+ geom_jitter() +
+  theme(axis.text.x=element_text(angle=45,hjust=1))+
+  labs(subtitle = 'All comments') + 
+  xlab(label = 'Age of video') + 
+  ylab(label = 'Count')
+
+p2=video_comments %>%
+  group_by(post_comm_gap) %>%
+  mutate(total_videos = n()) %>%
+  ungroup() %>% 
+  filter(total_videos < 20) %>%
+  ggplot(aes(post_comm_gap, total_videos)) +         
+  facet_wrap(~label)+ geom_jitter() +
+  theme(axis.text.x=element_text(angle=45,hjust=1))+
+  labs(subtitle = 'Less than 20 total comments') + 
+  xlab(label = 'Age of video') + 
+  ylab(label = 'Count')
+
+grid.arrange(p1,p2, ncol = 2, top = 'Number of comments over the life time of videos')
+```
+
+```{r}
+install.packages("remotes")
+
+library(remotes)
+install_github("EmilHvitfeldt/textdata")
+install_github("juliasilge/tidytext")
+library(tidytext)
+
+get_sentiments("nrc")
+# creating a new column with the words
+video_comments$textDisplay = as.character(video_comments$textDisplay)
+token = video_comments %>% 
+  unnest_tokens(word, textDisplay, token = 'words', drop = FALSE) 
+
+token %>% select(label, tidy_date, word) %>%
+  inner_join(get_sentiments('nrc'), by = 'word') %>% 
+  group_by(label,tidy_date) %>% 
+  mutate(label_month_total = n()) %>%
+  ungroup() %>%
+  group_by(label,sentiment,tidy_date) %>%
+  mutate(label_month_senti_total = n()) %>%
+  ungroup() %>%
+  mutate(percent_sentiment = label_month_senti_total/label_month_total) %>% select(label, tidy_date, sentiment, percent_sentiment) %>% unique() %>% 
+  ggplot(aes(tidy_date, percent_sentiment, color = factor(sentiment))) + geom_line(size = 1) + facet_wrap(~label) + theme(axis.text.x=element_text(angle=45,hjust=1)) + 
+  labs(title = 'Different sentiment trending over the time', x = 'Date', y = 'Percentage', colour = "Sentiments")
+```
+
+```{r}
+p1 = token %>% select(label, tidy_date, word) %>%
+  inner_join(get_sentiments('nrc'), by = 'word') %>% 
+  filter(sentiment %in% c('anger','disgust','fear','sadness','negative')) %>%
+  group_by(label,tidy_date) %>% 
+  mutate(label_month_total = n()) %>%
+  ungroup() %>%
+  group_by(label,sentiment,tidy_date) %>%
+  mutate(label_month_senti_total = n()) %>%
+  ungroup() %>%
+  mutate(percent_sentiment = label_month_senti_total/label_month_total) %>% select(label, tidy_date, sentiment, percent_sentiment) %>% unique() %>% 
+  ggplot(aes(tidy_date, percent_sentiment, color = factor(sentiment))) + geom_line(size = 1) + facet_wrap(~label) + theme(axis.text.x=element_text(angle=45,hjust=1)) + 
+  labs(title = 'Negative sentiments trending over the time', x = 'Date', y = 'Percentage', colour = "Sentiments") +
+  scale_x_date(date_labels="%b %y",date_breaks  ="2 month") 
+
+p2 = token %>% select(label, tidy_date, word) %>%
+  inner_join(get_sentiments('nrc'), by = 'word') %>% 
+  filter(!sentiment %in% c('anger','disgust','fear','sadness','negative')) %>%
+  group_by(label,tidy_date) %>% 
+  mutate(label_month_total = n()) %>%
+  ungroup() %>%
+  group_by(label,sentiment,tidy_date) %>%
+  mutate(label_month_senti_total = n()) %>%
+  ungroup() %>%
+  mutate(percent_sentiment = label_month_senti_total/label_month_total) %>% select(label, tidy_date, sentiment, percent_sentiment) %>% unique() %>% 
+  ggplot(aes(tidy_date, percent_sentiment, color = factor(sentiment))) + geom_line(size = 1) + facet_wrap(~label) + theme(axis.text.x=element_text(angle=45,hjust=1)) + 
+  labs(title = 'Positive sentiments trending over the time', x = 'Date', y = 'Percentage', colour = "Sentiments")+
+  scale_x_date(date_labels="%b %y",date_breaks  ="2 month") 
+
+grid.arrange(p1,p2, ncol = 2)
+```
+```{r}
+#install.packages("udpipe")
+library("udpipe")
+#key words extraction from the advising notes
+ud_model = udpipe_download_model(language = 'english')
+ud_model = udpipe_load_model(ud_model$file_model)
+
+net_plot = function(dataset,label_name,sg) {
+  text = dataset %>% filter(label == label_name)
+  text = text %>% filter(publishedAt_comment > "2018-06-01")
+  text = udpipe_annotate(ud_model, x = text$textDisplay)
+  text = as.data.frame(text)
+  text$lemma = removeWords(text$lemma, stopwords('english')) 
+  text$lemma = removePunctuation(text$lemma) 
+  text = text %>% filter(lemma != "")
+  stat = cooccurrence(x = subset(text, upos %in% c('NOUN','ADJ')), term = 'lemma',
+                      group = c("doc_id", "paragraph_id", "sentence_id"), skipgram = sg)
+  wordnetwork <- head(stat,50)
+  wordnetwork <- graph_from_data_frame(wordnetwork)
+  plot = ggraph(wordnetwork, layout = "fr") +
+    geom_edge_link(aes(width = cooc, edge_alpha = cooc), edge_colour = 'red') +
+    geom_node_text(aes(label = name), col = "darkgreen", size = 4) +
+    theme_graph(base_family = "Arial Narrow") +
+    theme(legend.position = "none") +
+    labs(title = 'Cooccurrent Nouns and Adjectives', 
+         subtitle = label_name)
+  return(plot)
+}
+
+# net_plot(video_comments, 'dhaka',2)
+# net_plot(video_comments, 'cricket',2)
+ ## Download and install the package
+install.packages("igraph")
+
+## Load package
+library(igraph)
+library(ggraph)
+#> Loading required package: ggplot2
+library(tidygraph)
+ 
+p1=net_plot(video_comments, 'popular',2)
+p2=net_plot(video_comments, 'hit',2)
+
+grid.arrange(p1,p2,ncol = 2, top = 'Word networks')
+```
+
