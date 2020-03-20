@@ -1,0 +1,54 @@
+---
+title: "durationTotal"
+author: "ismayil"
+date: "3/19/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+a1<-read.csv("animation_duration.csv")
+a2<-read.csv("comed1.csv")
+a3<-read.csv("cook1.csv")
+a4<-read.csv("Film&Animation.csv")
+a5<-read.csv("game1.csv")
+a6<-read.csv("how_to_style2009_duration.csv")
+a7<-read.csv("movies_duration.csv")
+a8<-read.csv("mus1.csv")
+a9<-read.csv("ng1.csv")
+a10<-read.csv("P&B1.csv")
+
+a11<-read.csv("P&A1.csv")
+
+
+a12<-read.csv("spor1.csv")
+a13<-read.csv("travel_vlog_Dur.csv")
+a<-rbind(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13)
+
+
+a <- a[a$duration < 120,]
+a<-na.omit(a)
+
+
+
+hist(a$duration,xlab = "Weight",col = "yellow",border = "blue",main=NULL)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

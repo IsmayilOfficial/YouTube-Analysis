@@ -27,8 +27,8 @@ library(wordcloud)
 
 ```{r}
 
-xx<- read.csv("non_popular_movies.csv")
-zaz<- xx$video_id.text
+xx<- read.csv("People&Blogs.csv")
+zaz<- xx$comment
 
 zaz<- na.omit(zaz)
 
@@ -41,9 +41,6 @@ clean_tweets<-zaz
 
 
 
-```
-
-```{r}
 # using sentiment package to classify emotions
 emotions <- classify_emotion(clean_tweets, algorithm='bayes')
 
@@ -56,8 +53,6 @@ df<- na.omit(df)
 df[is.na(df)] <- "N.A."
 
 
-```
-```{r}
 # plot the emotions
 plot_ly(df, x=~emotion,type="histogram",
         marker = list(color = c('grey', 'red',
