@@ -15,7 +15,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
+```{r Accaunt1}
+#
 library(tuber)
 app_id = '513902774051-nfunqdrtndpb7jkp1t069rbcut20vif6.apps.googleusercontent.com'
 
@@ -38,15 +39,62 @@ yt_oauth(app_id = app_id, app_secret = app_secret)
 ```
 
 
+```{r Accaunt 2}
+library(tuber)
+app_id = '570143920296-d6n69c7bm713edtm3vffmtq46t0751pm.apps.googleusercontent.com'
+
+app_secret = 'DB27e-L6XpKcAOx6UyK1hv0i'
+
+
+
+
+# establishing connecting with YouTube
+
+
+
+
+# credentials 
+
+yt_oauth(app_id = app_id, app_secret = app_secret)
+
+
+
+```
+
+
+
+```{r Accaunt 3}
+library(tuber)
+app_id = '637343645099-ngdppd65ohdecs5lp4utoch48utr0nhv.apps.googleusercontent.com'
+
+app_secret = 'WqQpVU82xWuEp8MizGmHg69u'
+
+
+
+
+# establishing connecting with YouTube
+
+
+
+
+# credentials 
+
+yt_oauth(app_id = app_id, app_secret = app_secret)
+
+
+
+```
 ```{r}
 
 
 
-videos_year <- yt_search(term = "People & Blogs")
+videos_year <- yt_search(term = "music 2020 new songs")
 
 videostats = lapply(as.character(videos_year$video_id), function(x){
   get_stats(video_id = x)
-})
+
+  
+  })
 library(plyr)
 df = ldply(videostats, data.frame)
 
@@ -92,7 +140,7 @@ videos_year$title = gsub(" $", "", videos_year$title)  # Lagging blanks
 videos_year$title = gsub(" +", " ", videos_year$title) # General spaces 
 videos_year$title = tolower(videos_year$title) # lowering all letters
 
-write.csv(videos_year,'People&Blogs.csv', row.names = FALSE)
+write.csv(videos_year,'music_2020.csv', row.names = FALSE)
 ```
 
 

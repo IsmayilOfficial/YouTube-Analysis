@@ -1,0 +1,80 @@
+---
+title: "titleAnalysis"
+author: "ismayil"
+date: "3/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+library(dplyr)
+#install.packages("tm.plugin.webmining")
+#library(tm.plugin.webmining)
+library(purrr)
+library(tidytext)
+library(gutenbergr)
+library(ggplot2)
+
+```
+
+```{r}
+
+library("tm")
+library("SnowballC")
+posts<- read.csv("ALLComedy.csv", header = TRUE,  fileEncoding="latin1")
+corpus <- Corpus(VectorSource(posts$title)) # create corpus object
+corpus <- tm_map(corpus, tolower) # convert all text to lower case
+corpus <- tm_map(corpus, mc.cores=1, removePunctuation)
+corpus <- tm_map(corpus, removeNumbers, mc.cores=1)
+corpus <- tm_map(corpus, removeWords, stopwords("english"))
+
+tdm <- TermDocumentMatrix(corpus)
+#tdm <- TermDocumentMatrix(corpus, control = list(weighting = weightTfIdf))
+
+mydata.df <- as.data.frame(inspect(tdm))
+count<- as.data.frame(rowSums(mydata.df))
+count$word = rownames(count)
+colnames(count) <- c("count","word" )
+count<-count[order(count$count, decreasing=TRUE), ]
+
+View(count)
+write.csv(count,"PTT.csv")
+
+```
+
+```{r}
+tidy_dickens <- videos%>%
+  unnest_tokens(word, text) %>%
+  anti_join(stop_words)
+```
+```{r}
+
+x<- read.csv("ALLPeople&Blog.csv")
+library(stringr)
+description_length<- str_count(x$description, '\\w+')
+title_length<- str_count(x$title, '\\w+')
+ca <- as.data.frame(description_length)
+ca2 <- as.data.frame(title_length)
+write.csv(ca2,"xama.csv")
+write.csv(ca,"People&BlogCorrelation.csv")
+
+```
+
+```{r}
+va<- read.csv("People&BlogCorrelation.csv")
+
+va<- na.omit(va)
+
+
+M<-cor(va)
+head(round(M,2))
+
+library(corrplot)
+# method = "pie"
+corrplot(M, method = "color")
+```
+

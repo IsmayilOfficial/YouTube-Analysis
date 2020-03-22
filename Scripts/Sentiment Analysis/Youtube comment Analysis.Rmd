@@ -1,0 +1,213 @@
+---
+title: "YoiTube Analysis"
+author: "Ismayil Tahmazov"
+date: "October 18, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(tuber)
+library(tidyverse)
+library(lubridate)
+library(stringi)
+library(wordcloud)
+library(gridExtra)
+
+# = Autentication = #
+# # credentials 
+# # credentials 
+app_id = '570143920296-d6n69c7bm713edtm3vffmtq46t0751pm.apps.googleusercontent.com'
+app_secret = 'DB27e-L6XpKcAOx6UyK1hv0i'
+
+
+
+
+# establishing connecting with YouTube
+
+
+
+
+# credentials 
+
+yt_oauth(app_id = app_id, app_secret = app_secret)
+
+# = Download and prepare data = #
+
+# = Channel stats = #
+
+chstat = get_channel_stats("UCXuqSBlHAE6Xw-yeJA0Tunw")
+
+# = Videos = #
+videos = yt_search(term="", type="video", channel_id = "UCXuqSBlHAE6Xw-yeJA0Tunw")
+videos = videos %>%
+  mutate(date = as.Date(publishedAt)) %>%
+  filter(date > "2019-01-01") %>%
+  arrange(date)
+
+# = Comments = #
+comments = lapply(as.character(videos$video_id), function(x){
+  get_comment_threads(c(video_id = x), max_results = 1000)
+})
+
+
+
+# = Prep the data = #
+# = Video Stat Table = #
+videostats = lapply(as.character(videos$video_id), function(x){
+  get_stats(video_id = x)
+})
+videostats = do.call(rbind.data.frame, videostats)
+videostats$title = videos$title
+videostats$date = videos$date
+videostats = select(videostats, date, title, viewCount, likeCount, dislikeCount, commentCount) %>%
+  as.tibble() %>%
+  mutate(viewCount = as.numeric(as.character(viewCount)),
+         likeCount = as.numeric(as.character(likeCount)),
+         dislikeCount = as.numeric(as.character(dislikeCount)),
+         commentCount = as.numeric(as.character(commentCount)))
+
+# = General Stat Table = #
+genstat = data.frame(Channel="Linus Tech Tips", Subcriptions=chstat$statistics$subscriberCount,
+                   Views = chstat$statistics$viewCount,
+                   Videos = chstat$statistics$videoCount, Likes = sum(videostats$likeCount),
+                   Dislikes = sum(videostats$dislikeCount), Comments = sum(videostats$commentCount))
+
+view(comments)
+x<- as.data.frame(comments)
+x = do.call(rbind.data.frame, comments)
+```
+
+```{r}
+library(tuber)
+library(tidyverse)
+library(lubridate)
+library(stringi)
+library(wordcloud)
+library(gridExtra)
+
+# = Autentication = #
+# # credentials 
+# # credentials 
+app_id = '570143920296-d6n69c7bm713edtm3vffmtq46t0751pm.apps.googleusercontent.com'
+app_secret = 'DB27e-L6XpKcAOx6UyK1hv0i'
+
+
+
+
+# establishing connecting with YouTube
+
+
+
+
+# credentials 
+
+yt_oauth(app_id = app_id, app_secret = app_secret)
+
+# = Download and prepare data = #
+
+# = Channel stats = #
+chstat = get_channel_stats("UCbZRdTukTCjFan4onn04sDA")
+
+# = Videos = #
+videos = yt_search(term="", type="video", channel_id = "UCbZRdTukTCjFan4onn04sDA")
+videos = videos %>%
+  mutate(date = as.Date(publishedAt)) %>%
+  filter(date > "2016-01-01") %>%
+  arrange(date)
+
+# = Comments = #
+comments = lapply(as.character(videos$video_id), function(x){
+  get_comment_threads(c(video_id = x), max_results = 1000)
+})
+
+# = Prep the data = #
+# = Video Stat Table = #
+videostats = lapply(as.character(videos$video_id), function(x){
+  get_stats(video_id = x)
+})
+videostats = do.call(rbind.data.frame, videostats)
+videostats$title = videos$title
+videostats$date = videos$date
+videostats = select(videostats, date, title, viewCount, likeCount, dislikeCount, commentCount) %>%
+  as.tibble() %>%
+  mutate(viewCount = as.numeric(as.character(viewCount)),
+         likeCount = as.numeric(as.character(likeCount)),
+         dislikeCount = as.numeric(as.character(dislikeCount)),
+         commentCount = as.numeric(as.character(commentCount)))
+
+# = General Stat Table = #
+genstat = data.frame(Channel="Dan Vasc", Subcriptions=chstat$statistics$subscriberCount,
+                   Views = chstat$statistics$viewCount,
+                   Videos = chstat$statistics$videoCount, Likes = sum(videostats$likeCount),
+                   Dislikes = sum(videostats$dislikeCount), Comments = sum(videostats$commentCount))
+
+# = videostats Plot = #
+p1 = ggplot(data = videostats[-1, ]) + geom_point(aes(x = viewCount, y = likeCount))
+p2 = ggplot(data = videostats[-1, ]) + geom_point(aes(x = viewCount, y = dislikeCount))
+p3 = ggplot(data = videostats[-1, ]) + geom_point(aes(x = viewCount, y = commentCount))
+grid.arrange(p1, p2, p3, ncol = 2)
+
+# = Comments TS = #
+comments_ts = lapply(comments, function(x){
+  as.Date(x$publishedAt)
+})
+comments_ts = tibble(date = as.Date(Reduce(c, comments_ts))) %>%
+  group_by(date) %>% count()
+ggplot(data = comments_ts) + geom_line(aes(x = date, y = n)) +
+  geom_smooth(aes(x = date, y = n), se = FALSE) + ggtitle("Comments by day")+
+  geom_vline(xintercept = as.numeric(as.Date("2017-11-08")), linetype = 2,color = "red")+
+  geom_vline(xintercept = as.numeric(as.Date("2017-04-28")), linetype = 2,color = "red")
+
+# = coments by video = #
+selected = (nrow(videostats) - 3):nrow(videostats)
+top4 = videostats$title[selected]
+top4comments = comments[selected]
+
+p = list()
+for(i in 1:4){
+  df = top4comments[[i]]
+  df$date = as.Date(df$publishedAt)
+  df = df %>%
+    arrange(date) %>%
+    group_by(year(date), month(date), day(date)) %>%
+    count()
+  df$date = make_date(df$`year(date)`, df$`month(date)`,df$`day(date)`)
+  p[[i]] = ggplot(data=df) + geom_line(aes(x = date, y = n)) + ggtitle(top4[i])
+}
+do.call(grid.arrange,p)
+
+## = WordClouds = ##
+comments_text = lapply(comments,function(x){
+  as.character(x$textOriginal)
+})
+comments_text = tibble(text = Reduce(c, comments_text)) %>%
+  mutate(text = stri_trans_general(tolower(text), "Latin-ASCII"))
+remove = c("you","the","que","and","your","muito","this","that","are","for","cara",
+         "from","very","like","have","voce","man","one","nao","com","with","mais",
+         "was","can","uma","but","ficou","meu","really","seu","would","sua","more",
+         "it's","it","is","all","i'm","mas","como","just","make","what","esse","how",
+         "por","favor","sempre","time","esta","every","para","i've","tem","will",
+         "you're","essa","not","faz","pelo","than","about","acho","isso",
+         "way","also","aqui","been","out","say","should","when","did","mesmo",
+         "minha","next","cha","pra","sei","sure","too","das","fazer","made",
+         "quando","ver","cada","here","need","ter","don't","este","has","tambem",
+         "una","want","ate","can't","could","dia","fiquei","num","seus","tinha","vez",
+         "ainda","any","dos","even","get","must","other","sem","vai","agora","desde",
+         "dessa","fez","many","most","tao","then","tudo","vou","ficaria","foi","pela",
+         "see","teu","those","were")
+words = tibble(word = Reduce(c, stri_extract_all_words(comments_text$text))) %>%
+  group_by(word) %>% count() %>% arrange(desc(n)) %>% filter(nchar(word) >= 3) %>%
+  filter(n > 10 & word %in% remove == FALSE) 
+
+set.seed(3)
+wordcloud(words$word, words$n, random.order = FALSE, random.color = TRUE,
+          rot.per = 0.3, colors = 1:nrow(words))
+
+```
+
+

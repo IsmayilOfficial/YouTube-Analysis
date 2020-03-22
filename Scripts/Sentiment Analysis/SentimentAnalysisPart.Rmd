@@ -1,0 +1,89 @@
+---
+title: "SentimentAnalysisPart"
+author: "ismayil"
+date: "2/24/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r libraries}
+
+library(devtools)
+if(!require(Rstem)) install_url("http://cran.r-project.org/src/contrib/Archive/Rstem/Rstem_0.4-1.tar.gz")
+if(!require(sentiment)) install_url("http://cran.r-project.org/src/contrib/Archive/sentiment/sentiment_0.2.tar.gz")
+library(Rstem)
+library(sentiment)
+library(plotly)
+library(dplyr)
+library(wordcloud)
+
+```
+
+
+
+```{r}
+
+xx<- read.csv("People&Blogs.csv")
+zaz<- xx$comment
+
+zaz<- na.omit(zaz)
+
+
+clean_tweets<-zaz
+
+
+
+
+
+
+
+# using sentiment package to classify emotions
+emotions <- classify_emotion(clean_tweets, algorithm='bayes')
+
+# using sentiment package to classify polarities
+polarities = classify_polarity(clean_tweets, algorithm='bayes')
+
+df = data.frame(text=clean_tweets, emotion=emotions[,'BEST_FIT'],
+                     polarity=polarities[,'BEST_FIT'], stringsAsFactors=FALSE)
+df<- na.omit(df)
+df[is.na(df)] <- "N.A."
+
+
+# plot the emotions
+plot_ly(df, x=~emotion,type="histogram",
+        marker = list(color = c('grey', 'red',
+                                'orange', 'navy',
+                                'yellow'))) %>%
+  layout(yaxis = list(title='Count'), title="Sentiment Analysis: Emotions")
+```
+```{r}
+plot_ly(df, x=~polarity, type="histogram",
+        marker = list(color = c('magenta', 'gold',
+                                'lightblue'))) %>%
+  layout(yaxis = list(title='Count'), title="Sentiment Analysis: Polarity")
+```
+
+```{r}
+# Visualize the words by polarity
+df <- df %>%
+  group_by(polarity) %>%
+  summarise(pasted=paste(text, collapse=" "))
+
+# remove stopwords
+df$pasted = removeWords(df$pasted, stopwords('english'))
+
+# create corpus
+corpus = Corpus(VectorSource(df$pasted))
+tdm = TermDocumentMatrix(corpus)
+tdm = as.matrix(tdm)
+colnames(tdm) = df$polarity
+
+# comparison word cloud
+comparison.cloud(tdm, colors = brewer.pal(3, 'Dark2'),
+                 scale = c(3,.5), random.order = FALSE, title.size = 1.5)
+```
+

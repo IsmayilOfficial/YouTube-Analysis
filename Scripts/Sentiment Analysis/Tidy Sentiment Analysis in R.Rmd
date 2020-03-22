@@ -1,0 +1,121 @@
+---
+title: "Tidy Sentiment Analysis in R"
+author: "ismayil"
+date: "2/10/2020"
+output: html_document
+---
+```{r}
+# # Install
+# install.packages("tm")  # for text mining
+# install.packages("SnowballC") # for text stemming
+# install.packages("wordcloud") # word-cloud generator 
+# install.packages("RColorBrewer") # color palettes
+# install.packages("http://cran.r-project.org/bin/windows/contrib/3.0/tm_0.5-10.zip",repos=NULL)
+# library(tm)
+# Load
+library("tm")
+library("SnowballC")
+library("wordcloud")
+library("RColorBrewer")
+```
+
+```{r}
+text <- readLines(file.choose())
+
+```
+
+```{r}
+# Load the data as a corpus
+#to remove emojis
+text <- iconv(text, 'UTF-8', 'ASCII')
+docs <- Corpus(VectorSource(text))
+```
+
+```{r}
+#inspect(docs)
+```
+```{r}
+toSpace <- content_transformer(function (x , pattern ) gsub(pattern, " ", x))
+docs <- tm_map(docs, toSpace, "/")
+docs <- tm_map(docs, toSpace, "@")
+docs <- tm_map(docs, toSpace, "\\|")
+docs <- tm_map(docs, toSpace, "http")
+docs <- tm_map(docs, toSpace, "www")
+docs <- tm_map(docs, toSpace, "com")
+docs <- tm_map(docs, toSpace, "udu")
+docs <- tm_map(docs, toSpace, "udu")
+docs <- tm_map(docs, toSpace, "daud")
+docs <- tm_map(docs, toSpace, "udc")
+docs <- tm_map(docs, toSpace, "bit.ly")
+docs <- tm_map(docs, toSpace, "will")
+docs <- tm_map(docs, toSpace, "dudca")
+docs <- tm_map(docs, toSpace, "utm")
+
+
+docs <- tm_map(docs, toSpace, "like")
+docs <- tm_map(docs, toSpace, "names")
+docs <- tm_map(docs, toSpace, "sewingpartsonline")
+
+docs <- tm_map(docs, toSpace, "srilankaelle")
+docs <- tm_map(docs, toSpace, "name")
+
+docs <- tm_map(docs, toSpace, "can")
+
+docs <- tm_map(docs, toSpace, "gmail")
+docs <- tm_map(docs, toSpace, "new")
+
+docs <- tm_map(docs, toSpace, "smartphone")
+
+docs <- tm_map(docs, toSpace, "video")
+
+```
+
+```{r}
+# Convert the text to lower case
+docs <- tm_map(docs, content_transformer(tolower))
+# Remove numbers
+docs <- tm_map(docs, removeNumbers)
+# Remove english common stopwords
+docs <- tm_map(docs, removeWords, stopwords("english"))
+# Remove your own stop word
+# specify your stopwords as a character vector
+docs <- tm_map(docs, removeWords, c("blabla1", "blabla2")) 
+# Remove punctuations
+docs <- tm_map(docs, removePunctuation)
+# Eliminate extra white spaces
+docs <- tm_map(docs, stripWhitespace)
+# Text stemming
+# docs <- tm_map(docs, stemDocument)
+```
+
+```{r}
+dtm <- TermDocumentMatrix(docs)
+m <- as.matrix(dtm)
+v <- sort(rowSums(m),decreasing=TRUE)
+d <- data.frame(word = names(v),freq=v)
+head(d, 10)
+```
+```{r}
+set.seed(1234)
+wordcloud(words = d$word, freq = d$freq, min.freq = 1,
+          max.words=200, random.order=FALSE, rot.per=0.35, 
+          colors=brewer.pal(8, "Dark2"))
+```
+```{r}
+#findFreqTerms(dtm, lowfreq = 4)
+```
+```{r}
+findAssocs(dtm, terms = "animation", corlimit = 0.3)
+```
+
+```{r}
+head(d, 10)
+```
+
+```{r}
+barplot(d[1:10,]$freq, las = 2, names.arg = d[1:10,]$word,
+        col ="green", main ="Most frequent words",
+        ylab = "Word frequencies")
+```
+
+

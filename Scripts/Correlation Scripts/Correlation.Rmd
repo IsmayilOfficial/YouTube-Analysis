@@ -1,0 +1,39 @@
+---
+title: "Correlation"
+author: "ismayil"
+date: "3/22/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+
+library(ggplot2)
+#videos<-read.csv("movies_duration.csv")
+dat<- read.csv('ALLComedy.csv')
+#dat<- rbind(videos,dat)
+#write.csv(dat,"Film&Animation.csv")
+dat <- na.omit(dat)
+View(dat)
+cor(dat$viewCount,dat$likeCount,method = "pearson")
+     
+
+
+
+## Basic histogram from the vector "rating". Each bin is .5 wide.
+## These both result in the same output:
+ #ggplot(dat, aes(x=duration)) + geom_histogram(binwidth=.5)
+# # # qplot(dat$rating, binwidth=.5)
+# # 
+# # # Draw with black outline, white fill
+#  ggplot(dat, aes(x=duration)) +
+#     geom_histogram(binwidth=.5, colour="black", fill="white")
+
+# Density curve
+ggplot(dat, aes(x=duration)) + geom_density()
+
+
+```
+
