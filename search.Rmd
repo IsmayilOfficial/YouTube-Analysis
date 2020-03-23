@@ -88,7 +88,7 @@ yt_oauth(app_id = app_id, app_secret = app_secret)
 
 
 
-videos_year <- yt_search(term = "music 2020 new songs")
+videos_year <- yt_search(term = "pets dogs")
 
 videostats = lapply(as.character(videos_year$video_id), function(x){
   get_stats(video_id = x)
@@ -140,7 +140,7 @@ videos_year$title = gsub(" $", "", videos_year$title)  # Lagging blanks
 videos_year$title = gsub(" +", " ", videos_year$title) # General spaces 
 videos_year$title = tolower(videos_year$title) # lowering all letters
 
-write.csv(videos_year,'music_2020.csv', row.names = FALSE)
+write.csv(videos_year,'pet_dog.csv', row.names = FALSE)
 ```
 
 

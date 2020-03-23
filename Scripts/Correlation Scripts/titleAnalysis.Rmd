@@ -53,19 +53,19 @@ tidy_dickens <- videos%>%
 ```
 ```{r}
 
-x<- read.csv("ALLPeople&Blog.csv")
+x<- read.csv("ALLScience&Technology.csv")
 library(stringr)
 description_length<- str_count(x$description, '\\w+')
 title_length<- str_count(x$title, '\\w+')
 ca <- as.data.frame(description_length)
 ca2 <- as.data.frame(title_length)
 write.csv(ca2,"xama.csv")
-write.csv(ca,"People&BlogCorrelation.csv")
+write.csv(ca,"Science&TechnologyCorrelation.csv")
 
 ```
 
 ```{r}
-va<- read.csv("People&BlogCorrelation.csv")
+va<- read.csv("Science&TechnologyCorrelation.csv")
 
 va<- na.omit(va)
 
@@ -75,6 +75,9 @@ head(round(M,2))
 
 library(corrplot)
 # method = "pie"
+png(filename="Science&TechnologyCorre.png")
 corrplot(M, method = "color")
+ dev.off()
+
 ```
 
