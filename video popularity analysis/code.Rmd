@@ -601,6 +601,18 @@ ggplot(GB_Top10_Popular_Categories,aes(category,No.of.Videos))+
                                                        axis.text.x = element_text(angle=90, hjust=1))
 ```
 
+
+
+```{r}
+
+GB_Top10_Popular_Categories = gbv %>% count(category)%>% 
+  arrange(desc(n))%>% head(10)%>%rename("No.of.Videos" = n)
+
+ggplot(GB_Top10_Popular_Categories,aes(category,No.of.Videos))+
+  geom_bar(stat = "identity",aes(fill=category))+theme(text = element_text(size=10),
+                                                       axis.text.x = element_text(angle=90, hjust=1))
+```
+
 ## Top 10 Most liked videos in Great Britian
 
 ```{r}
