@@ -1,0 +1,880 @@
+---
+title: "Youtube video Analysis for Countries"
+author: "Ismayil"
+date: "24 March 2020"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r global_options, include=FALSE, cache=FALSE}
+library(knitr)
+opts_chunk$set(echo=TRUE, 
+               warning=FALSE, 
+               message=FALSE,
+               cache = TRUE,
+               include = TRUE,
+               results = 'show',
+               error = TRUE)
+```
+
+
+
+
+## Loading the requires libraries
+
+```{r}
+library(rmarkdown)
+library(rjson)
+library(jsonlite)
+library(pander)
+library(cowplot)
+library(tidyverse)
+library(magrittr)
+library(dplyr)
+library(treemap)
+library(scales)
+library(ggplot2)
+library(gplots)
+library(tm)
+library(SnowballC)
+library(RSentiment)
+```
+# Data manipulation
+```{r}
+library(data.table)
+library(dplyr)
+library(DT)
+```
+
+# Time manipulation
+```{r}
+library(lubridate)
+```
+
+# Visualization
+```{r}
+library(RColorBrewer)
+library(plotrix)
+library(corrplot)
+library(ggdendro)
+library(ggrepel)
+```
+
+# Wordcloud
+```{r}
+library(wordcloud)
+```
+
+# Text manipulation
+```{r}
+library(tidytext)
+library(stringr)
+library(tm)
+library(sentimentr)
+library(RSentiment)
+```
+
+## Loading the Data
+
+```{r}
+usv = read.csv("USvideos.csv")
+cav = read.csv("CAvideos.csv")
+gbv = read.csv("GBvideos.csv")
+frv = read.csv("FRvideos.csv")
+gev = read.csv("DEvideos.csv")
+
+```
+
+
+# Reading and preparing data
+
+```{r}
+
+gb <- tail(fread("GBvideos.csv",encoding = "UTF-8"),20000)
+gb[,"Location":="GB"]
+
+fr <- tail(fread("FRvideos.csv",encoding = "UTF-8"),20000)
+fr[,"Location":="FR"]
+
+ca <- tail(fread("CAvideos.csv",encoding = "UTF-8"),20000)
+ca[,"Location":="CA"]
+
+us <- tail(fread("USvideos.csv",encoding = "UTF-8"),20000)
+us[,"Location":="US"]
+
+de <- tail(fread("DEvideos.csv",encoding = "UTF-8"),20000)
+de[,"Location":="DE"]
+
+videos <- as.data.table(rbind(gb,fr,ca,us,de))
+videos$trending_date <- ydm(videos$trending_date)
+videos$publish_time <- ymd(substr(videos$publish_time,start = 1,stop = 10))
+videos$dif_days <- videos$trending_date-videos$publish_time
+```
+## First lets see the CORRELATION
+
+```{r}
+corrplot.mixed(corr = cor(videos[,c("category_id","views","likes","dislikes","comment_count"),with=F]))
+```
+
+* We can see that between views and likes we have a high correlation, I thought that we will have a similar correlation between views and dislikes, but is almost half of the like correlation.
+
+### MOST...
+## Viewed videos
+
+```{r}
+
+mvideo <- videos[,.("Total_Views"=round(max(views,na.rm = T),digits = 2)),by=.(title,thumbnail_link)][order(-Total_Views)]
+
+mvideo %>% 
+
+  mutate(image = paste0('<img width="80%" height="80%" src="', thumbnail_link , '"></img>')) %>% 
+
+  arrange(-Total_Views) %>% 
+
+  top_n(10,wt = Total_Views) %>% 
+
+  select(image, title, Total_Views) %>% 
+
+  datatable(class = "nowrap hover row-border", escape = FALSE, options = list(dom = 't',scrollX = TRUE, autoWidth = TRUE))
+
+```
+## Liked videos (Absolute)
+
+```{r}
+
+mvideo <- videos[,.("Total_Likes"=round(max(likes,na.rm = T),digits = 2)),by=.(title,thumbnail_link)][order(-Total_Likes)]
+
+
+
+mvideo %>% 
+
+  mutate(image = paste0('<img width="80%" height="80%" src="', thumbnail_link , '"></img>')) %>% 
+
+  arrange(-Total_Likes) %>% 
+
+  top_n(10,wt = Total_Likes) %>% 
+
+  select(image, title, Total_Likes) %>% 
+
+  datatable(class = "nowrap hover row-border", escape = FALSE, options = list(dom = 't',scrollX = TRUE, autoWidth = TRUE))
+
+```
+
+
+
+## Disliked videos (Absolute)
+
+```{r}
+
+mvideo <- videos[,.("Total_Dislikes"=round(max(dislikes,na.rm = T),digits = 2)),by=.(title,thumbnail_link)][order(-Total_Dislikes)]
+
+
+
+mvideo %>% 
+
+  mutate(image = paste0('<img width="80%" height="80%" src="', thumbnail_link , '"></img>')) %>% 
+
+  arrange(-Total_Dislikes) %>% 
+
+  top_n(10,wt = Total_Dislikes) %>% 
+
+  select(image, title, Total_Dislikes) %>% 
+
+  datatable(class = "nowrap hover row-border", escape = FALSE, options = list(dom = 't',scrollX = TRUE, autoWidth = TRUE))
+
+```
+
+
+
+
+
+## Commented videos (Absolute)
+
+```{r}
+
+mvideo <- videos[,.("Total_comments"=round(max(comment_count,na.rm = T),digits = 2)),by=.(title,thumbnail_link)][order(-Total_comments)]
+
+
+
+mvideo %>% 
+
+  mutate(image = paste0('<img width="80%" height="80%" src="', thumbnail_link , '"></img>')) %>% 
+
+  arrange(-Total_comments) %>% 
+
+  top_n(10,wt = Total_comments) %>% 
+
+  select(image, title, Total_comments) %>% 
+
+  datatable(class = "nowrap hover row-border", escape = FALSE, options = list(dom = 't',scrollX = TRUE, autoWidth = TRUE))
+
+```
+
+
+
+
+
+# Top 10 in percentage
+
+
+* Because the absolute number of likes, dislikes and comments didnt show all the information to really know if the video had an impact or not we will see their percentages.
+
+
+
+## % Liked videos
+
+```{r}
+
+mvideo <- videos[,.("Percentage_Likes"=round(100*max(likes,na.rm = T)/max(views,na.rm = T),digits = 2)),by=.(title,thumbnail_link)][order(-Percentage_Likes)]
+
+
+
+mvideo %>% 
+
+  mutate(image = paste0('<img width="80%" height="80%" src="', thumbnail_link , '"></img>')) %>% 
+
+  arrange(-Percentage_Likes) %>% 
+
+  top_n(10,wt = Percentage_Likes) %>% 
+
+  select(image, title, Percentage_Likes) %>% 
+
+  datatable(class = "nowrap hover row-border", escape = FALSE, options = list(dom = 't',scrollX = TRUE, autoWidth = TRUE))
+
+```
+
+
+
+## % Disliked videos 
+
+```{r}
+
+mvideo <- videos[,.("Percentage_Dislikes"=round(100*max(dislikes,na.rm = T)/max(views,na.rm = T),digits = 2)),by=.(title,thumbnail_link)][order(-Percentage_Dislikes)]
+
+
+
+mvideo %>% 
+
+  mutate(image = paste0('<img width="80%" height="80%" src="', thumbnail_link , '"></img>')) %>% 
+
+  arrange(-Percentage_Dislikes) %>% 
+
+  top_n(10,wt = Percentage_Dislikes) %>% 
+
+  select(image, title, Percentage_Dislikes) %>% 
+
+  datatable(class = "nowrap hover row-border", escape = FALSE, options = list(dom = 't',scrollX = TRUE, autoWidth = TRUE))
+
+```
+
+
+
+
+
+## % Commented videos 
+
+```{r}
+
+mvideo <- videos[,.("Percentage_comments"=round(100*max(comment_count,na.rm = T)/max(views,na.rm = T),digits = 2)),by=.(title,thumbnail_link)][order(-Percentage_comments)]
+
+
+
+mvideo %>% 
+
+  mutate(image = paste0('<img width="80%" height="80%" src="', thumbnail_link , '"></img>')) %>% 
+
+  arrange(-Percentage_comments) %>% 
+
+  top_n(10,wt = Percentage_comments) %>% 
+
+  select(image, title, Percentage_comments) %>% 
+
+  datatable(class = "nowrap hover row-border", escape = FALSE, options = list(dom = 't',scrollX = TRUE, autoWidth = TRUE))
+
+```
+
+
+
+* It looks that the French and German people comments more often than other nationalities
+
+# Top trending Channels in all countries
+
+```{r}
+
+ggplot(videos[,.N,by=channel_title][order(-N)][1:10],aes(reorder(channel_title,-N),N,fill=channel_title))+geom_bar(stat="identity")+geom_label(aes(label=N))+guides(fill="none")+theme(axis.text.x = element_text(angle = 45,hjust = 1))+  labs(caption="Donyoe",title=" Top trending channel titles in all countries")+
+
+xlab(NULL)+ylab(NULL)+coord_flip()
+
+```
+
+
+
+# Title Bigrams 
+
+```{r}
+biga <- unnest_tokens(videos,bigram, title, token = "ngrams", n = 2)
+biga <- as.data.table(biga)
+
+ggplot(biga[,.N,by=bigram][order(-N)][1:19],aes(reorder(bigram,-N),N,fill=bigram))+geom_bar(stat="identity")+geom_label(aes(label=N))+guides(fill="none")+theme(axis.text.x = element_text(angle = 45,hjust = 1))+  labs(caption="Donyoe",title="Top Title bigrams")+xlab(NULL)+ylab(NULL)
+
+
+
+```
+
+
+
+* There are mainly bigrams relationed to *music*.
+
+### Let us check out USA DATA
+## Adding categories to the data frame
+```{r}
+usv = usv %>% mutate(category = case_when(
+  category_id== '1' ~ 'Film and Animation',
+  category_id== '2' ~ 'Autos and Vehicles',
+  category_id== '10'~ 'Music',
+  category_id== '15'~ 'Pets and Animals',
+  category_id== '17'~ 'Sports',
+  category_id== '18'~ 'Short Movies',
+  category_id== '19'~ 'Travel and Events',
+  category_id== '20'~'Gaming',
+  category_id== '21'~'Videoblogging',
+  category_id== '22'~ 'People and Blogs',
+  category_id== '23'~ 'Comedy',
+  category_id== '24'~ 'Entertainment',
+  category_id== '25'~ 'News and Politics',
+  category_id== '26'~ 'How to and Style',
+  category_id== '27'~ 'Education',
+  category_id== '28'~ 'Science and Technology',
+  category_id== '29'~ 'Nonprofits & Activism',
+  category_id== '30'~ 'Movies',
+  category_id== '31'~ 'Anime/Animation',
+  category_id== '32'~ 'Action/Adventure',
+  category_id== '33'~ 'Classics',
+  category_id== '34'~ 'Comedy',
+  category_id== '35'~ 'Documentary',
+  category_id== '36'~ 'Drama',
+  category_id== '37'~ 'Family',
+  category_id== '38'~ 'Foreign',
+  category_id== '39'~ 'Horror',
+  category_id== '40'~ 'Sci-Fi/Fantasy',
+  category_id== '41'~ 'Thriller',
+  category_id== '42'~ 'Shorts',
+  category_id== '43'~ 'Shows',
+  category_id== '44'~ 'Trailers'))
+```
+
+```{r}
+ggplot(usv,aes(category,views))+geom_boxplot(fill = "orange",color = "blue")+scale_y_log10()+
+  theme(text = element_text(size=10),axis.text.x = element_text(angle=90, hjust=1))
+```
+
+```{r}
+US_Top10_Popular_Categories = usv %>% count(category)%>% 
+  arrange(desc(n))%>% head(10)%>%rename("No.of.Videos" = n)
+
+ggplot(US_Top10_Popular_Categories,aes(category,No.of.Videos))+
+  geom_bar(stat = "identity",aes(fill=category))+theme(text = element_text(size=10),
+                                                       axis.text.x = element_text(angle=90, hjust=1))
+```
+
+## Top 10 popular channels in USA
+
+```{r}
+US_Top10_Channels_with_most_trending_videos = usv %>% count(channel_title)%>% 
+  arrange(desc(n))%>% head(10)%>%rename("No.of.Videos" = n)
+
+labels = c("ESPN","Jimmy Kimmel","Seth Myers","NBA","Netflix","Screen Junkies","Stephen Colbert","Jimmy Fallon","Ellen","Vox")
+
+ggplot(US_Top10_Channels_with_most_trending_videos,aes(channel_title,No.of.Videos))+
+  geom_bar(stat = "identity",aes(fill = channel_title ))+scale_x_discrete(labels = labels)+theme(text = element_text(size=10),
+                                                                                                 axis.text.x = element_text(angle=90, hjust=1))
+```
+
+## Top 10 Videos trending for a longer period
+
+```{r}
+ggplot(usv,aes(category,views))+geom_violin(scale = "width",fill = "green",color = "blue")+scale_y_log10()+
+  theme(text = element_text(size=10),axis.text.x = element_text(angle=90, hjust=1))
+```
+
+
+## Top 10 Most liked videos in USA
+
+```{r}
+US_Top10_most_liked_videos = usv %>% select(title,channel_title,likes) %>% distinct(title,.keep_all = TRUE) %>%
+  mutate(Title = title)%>%arrange(desc(likes))%>% head(10)
+
+US_Top10_most_liked_videos$Title = c("Fake Love official by BTS","MIC Drop by BTS","Daydream by j-hope","Love Yourself by BTS","Avengers:Infinity War Trailer","Perfect by Ed Sheeran","Euphoria by BTS","Fake Love Extended by BTS","This is America by Childish Gambino","Airplane by j-hope")
+
+Map_US_most_liked = treemap(US_Top10_most_liked_videos,index = "Title",vSize = "likes",type = "index",title = "Most Liked Videos in US",palette="RdYlBu")
+```
+
+## Top 10 Most Viewed videos in USA
+
+```{r}
+US_Top10_most_viewed_videos = usv %>% select(title,channel_title,views,likes,category,comment_count) %>% 
+  distinct(title,.keep_all = TRUE) %>%mutate(Title = title)%>% arrange(desc(views))%>% head(10)
+
+US_Top10_most_viewed_videos$Title = c("El Prestamo by Maluma","Fake Love official by BTS","What is Love by TWICE","Avengers:Infinity War Trailer","Perfect by Ed Sheeran","This is America by Childish Gambino","VENOM Official Trailer","The Shape of 2017 - Youtube Rewind","Nice for What by Drake","Sanju Official Trailer")
+
+Map_US_most_viewed = treemap(US_Top10_most_viewed_videos,index = "Title",vSize = "views",type = "index",title = "Most Viewed Videos in US",palette="RdYlBu")
+```
+
+## Categories and their corresponding views,likes in USA
+
+```{r}
+ggplot(usv,aes(likes,views))+geom_text(aes(label = category),color= "blue",stat = "identity",check_overlap = FALSE)+theme_classic()+
+  scale_x_continuous(name = 'Likes',labels = comma)+scale_y_continuous(name = 'Views',labels = comma)
+```
+
+## Channels and their deleted videos in USA
+
+```{r}
+US_channels_with_ErrororRemoved_videos = usv %>% filter(video_error_or_removed != 'False')%>%group_by(video_id)%>%
+  count(channel_title) %>% rename("no.of.removed.videos" = n) 
+
+ggplot(US_channels_with_ErrororRemoved_videos,aes(channel_title,no.of.removed.videos))+
+  geom_bar(stat = "identity",aes(fill = channel_title ))+theme(text = element_text(size=12),
+                                                               axis.text.x = element_text(angle=90, hjust=1))
+
+```
+
+
+* We can see that a lot of the trending videos are music videos.
+
+
+
+# Top Category ID
+
+```{r}
+
+ggplot(videos[,.N,by=category_id][order(-N)],aes(reorder(category_id,-N),N,fill=as.factor(category_id)))+geom_bar(stat="identity")+guides(fill="none")+labs(caption="Donyoe",title=" Top Category ID")+
+
+xlab(NULL)+ylab(NULL)
+
+```
+
+
+
+### Let us consider Canada Data
+## Adding categories to the data frame
+
+```{r}
+cav = cav %>% mutate(category = case_when(
+  category_id== '1' ~ 'Film and Animation',
+  category_id== '2' ~ 'Autos and Vehicles',
+  category_id== '10'~ 'Music',
+  category_id== '15'~ 'Pets and Animals',
+  category_id== '17'~ 'Sports',
+  category_id== '18'~ 'Short Movies',
+  category_id== '19'~ 'Travel and Events',
+  category_id== '20'~'Gaming',
+  category_id== '21'~'Videoblogging',
+  category_id== '22'~ 'People and Blogs',
+  category_id== '23'~ 'Comedy',
+  category_id== '24'~ 'Entertainment',
+  category_id== '25'~ 'News and Politics',
+  category_id== '26'~ 'How to and Style',
+  category_id== '27'~ 'Education',
+  category_id== '28'~ 'Science and Technology',
+  category_id== '29'~ 'Nonprofits & Activism',
+  category_id== '30'~ 'Movies',
+  category_id== '31'~ 'Anime/Animation',
+  category_id== '32'~ 'Action/Adventure',
+  category_id== '33'~ 'Classics',
+  category_id== '34'~ 'Comedy',
+  category_id== '35'~ 'Documentary',
+  category_id== '36'~ 'Drama',
+  category_id== '37'~ 'Family',
+  category_id== '38'~ 'Foreign',
+  category_id== '39'~ 'Horror',
+  category_id== '40'~ 'Sci-Fi/Fantasy',
+  category_id== '41'~ 'Thriller',
+  category_id== '42'~ 'Shorts',
+  category_id== '43'~ 'Shows',
+  category_id== '44'~ 'Trailers'))
+```
+
+## Views per Category in Canada
+
+```{r}
+ggplot(cav,aes(category,views))+geom_violin(scale = "width",fill = "blue",color = "black")+scale_y_log10()+
+  theme(text = element_text(size=10),axis.text.x = element_text(angle=90, hjust=1))
+```
+
+## Top 10 popular Categories in Canada
+
+```{r}
+CA_Top10_Popular_Categories = cav %>% count(category)%>% 
+  arrange(desc(n))%>% head(10)%>%rename("No.of.Videos" = n)
+
+ggplot(CA_Top10_Popular_Categories,aes(category,No.of.Videos))+
+  geom_bar(stat = "identity",aes(fill=category))+theme(text = element_text(size=10),
+                                                       axis.text.x = element_text(angle=90, hjust=1))
+```
+
+## Top 10 Most liked videos in Canada
+
+```{r}
+CA_Top10_most_liked_videos = cav %>% select(title,channel_title,likes) %>% 
+  distinct(title,.keep_all = TRUE) %>% arrange(desc(likes))%>% head(10)
+
+CA_Top10_most_liked_videos$Title = c("Fake Love official by BTS","MIC Drop Official","Daydream by j-hope","Love Yourself by BTS","Avengers:Infinity War Trailer","Perfect by Ed Sheeran","Euphoria by BTS","Fake Love Extended by BTS","God's Plan by Drake","We Broke Up")
+
+Map_Canada_most_liked = treemap(CA_Top10_most_liked_videos,index = "Title",vSize = "likes",type = "index",title = "Most Liked Videos in Canada",palette="RdYlBu")
+```
+
+## Top 10 Most Viewed videos in Canada
+
+```{r}
+CA_Top10_most_viewed_videos = cav %>% select(title,channel_title,views) %>% 
+  distinct(title,.keep_all = TRUE) %>% arrange(desc(views))%>% head(10)
+
+CA_Top10_most_viewed_videos$Title = c("X(EQUIS) Official","Fake Love official by BTS","Avengers:Infinity War Official Trailer","El Farsante Remix","Perfect by Ed Sheeran","Tiger Zinda hai","The Shape of 2017 - Youtube Rewind","El Cavo by Prince Royce","Sanju Official Trailer","To our Daughter")
+
+Map_Canada_most_viewed = treemap(CA_Top10_most_viewed_videos,index = "Title",vSize = "views",type = "index",title = "Most Viewed Videos in Canada",palette="RdYlBu")
+```
+
+
+
+### Great Britian Data
+## Adding categories to the data frame
+
+
+```{r}
+gbv = gbv %>% mutate(category = case_when(
+  category_id== '1' ~ 'Film and Animation',
+  category_id== '2' ~ 'Autos and Vehicles',
+  category_id== '10'~ 'Music',
+  category_id== '15'~ 'Pets and Animals',
+  category_id== '17'~ 'Sports',
+  category_id== '18'~ 'Short Movies',
+  category_id== '19'~ 'Travel and Events',
+  category_id== '20'~'Gaming',
+  category_id== '21'~'Videoblogging',
+  category_id== '22'~ 'People and Blogs',
+  category_id== '23'~ 'Comedy',
+  category_id== '24'~ 'Entertainment',
+  category_id== '25'~ 'News and Politics',
+  category_id== '26'~ 'How to and Style',
+  category_id== '27'~ 'Education',
+  category_id== '28'~ 'Science and Technology',
+  category_id== '29'~ 'Nonprofits & Activism',
+  category_id== '30'~ 'Movies',
+  category_id== '31'~ 'Anime/Animation',
+  category_id== '32'~ 'Action/Adventure',
+  category_id== '33'~ 'Classics',
+  category_id== '34'~ 'Comedy',
+  category_id== '35'~ 'Documentary',
+  category_id== '36'~ 'Drama',
+  category_id== '37'~ 'Family',
+  category_id== '38'~ 'Foreign',
+  category_id== '39'~ 'Horror',
+  category_id== '40'~ 'Sci-Fi/Fantasy',
+  category_id== '41'~ 'Thriller',
+  category_id== '42'~ 'Shorts',
+  category_id== '43'~ 'Shows',
+  category_id== '44'~ 'Trailers'))
+```
+
+## Views per Category in Great Britian
+
+```{r}
+ggplot(gbv,aes(category,views))+geom_boxplot(fill = "black",color = "orange")+scale_y_log10()+
+  theme(text = element_text(size=10),axis.text.x = element_text(angle=90, hjust=1))
+```
+
+## Top 10 popular Categories in Great Britian
+
+```{r}
+GB_Top10_Popular_Categories = gbv %>% count(category)%>% 
+  arrange(desc(n))%>% head(10)%>%rename("No.of.Videos" = n)
+
+ggplot(GB_Top10_Popular_Categories,aes(category,No.of.Videos))+
+  geom_bar(stat = "identity",aes(fill=category))+theme(text = element_text(size=10),
+                                                       axis.text.x = element_text(angle=90, hjust=1))
+```
+
+## Top 10 Most liked videos in Great Britian
+
+```{r}
+GB_Top10_most_liked_videos = gbv %>% select(title,channel_title,likes) %>% 
+  distinct(title,.keep_all = TRUE) %>% arrange(desc(likes))%>% head(10)
+
+GB_Top10_most_liked_videos$Title = c("Fake Love official by BTS","Chame La Culpa by Demi Lovato","God's Plan by Drake","MIC Drop Official","Daydream by j-hope","Love Yourself by BTS","Avengers:Infinity War Trailer","Perfect by Ed Sheeran","Euphoria by BTS","Fake Love Extended by BTS")
+
+Map_GB_most_liked = treemap(GB_Top10_most_liked_videos,index = "Title",vSize = "likes",type = "index",title = "Most Liked Videos in Grear Britian",palette="RdYlBu")
+```
+
+## Top 10 Most Viewed videos in Great Britian
+
+```{r}
+GB_Top10_most_viewed_videos = gbv %>% select(title,channel_title,views) %>% 
+  distinct(title,.keep_all = TRUE) %>% arrange(desc(views))%>% head(10)
+
+GB_Top10_most_viewed_videos$Title = c("Chame Le Culpa by Demi Lovato","Sin pijama Official","Sebastian Yatra","Ulnica Official Video","X(EQUIS) Official","Fake Love official by BTS","Tonta Official Video","What is Love by TWICE","Avengers:Infinity War Official Trailer","God's Plan by Drake")
+
+Map_GB_most_viewed = treemap(GB_Top10_most_viewed_videos,index = "Title",vSize = "views",type = "index",title = "Most Viewed Videos in GB",palette="RdYlBu")
+```
+
+### France Data
+## Adding categories to the data frame
+
+```{r}
+frv = frv %>% mutate(category = case_when(
+  category_id== '1' ~ 'Film and Animation',
+  category_id== '2' ~ 'Autos & Vehicles',
+  category_id== '10'~ 'Music',
+  category_id== '15'~ 'Pets and Animals',
+  category_id== '17'~ 'Sports',
+  category_id== '18'~ 'Short Movies',
+  category_id== '19'~ 'Travel and Events',
+  category_id== '20'~'Gaming',
+  category_id== '21'~'Videoblogging',
+  category_id== '22'~ 'People and Blogs',
+  category_id== '23'~ 'Comedy',
+  category_id== '24'~ 'Entertainment',
+  category_id== '25'~ 'News and Politics',
+  category_id== '26'~ 'How to and Style',
+  category_id== '27'~ 'Education',
+  category_id== '28'~ 'Science and Technology',
+  category_id== '29'~ 'Nonprofits & Activism',
+  category_id== '30'~ 'Movies',
+  category_id== '31'~ 'Anime/Animation',
+  category_id== '32'~ 'Action/Adventure',
+  category_id== '33'~ 'Classics',
+  category_id== '34'~ 'Comedy',
+  category_id== '35'~ 'Documentary',
+  category_id== '36'~ 'Drama',
+  category_id== '37'~ 'Family',
+  category_id== '38'~ 'Foreign',
+  category_id== '39'~ 'Horror',
+  category_id== '40'~ 'Sci-Fi/Fantasy',
+  category_id== '41'~ 'Thriller',
+  category_id== '42'~ 'Shorts',
+  category_id== '43'~ 'Shows',
+  category_id== '44'~ 'Trailers'))
+```
+
+## Views per Category in France
+
+```{r}
+ggplot(frv,aes(category,views))+geom_boxplot(fill = "blue",color = "pink")+scale_y_log10()+
+  theme(text = element_text(size=10),axis.text.x = element_text(angle=90, hjust=1))
+```
+
+## Top 10 popular Categories in France
+
+```{r}
+FR_Top10_Popular_Categories = frv %>% count(category)%>% 
+  arrange(desc(n))%>% head(10)%>%rename("No.of.Videos" = n)
+
+ggplot(FR_Top10_Popular_Categories,aes(category,No.of.Videos))+
+  geom_bar(stat = "identity",aes(fill=category))+theme(text = element_text(size=10),
+                                                       axis.text.x = element_text(angle=90, hjust=1))
+```
+
+## Top 10 Most liked videos in France
+
+```{r}
+FR_Top10_most_liked_videos = frv %>% select(title,channel_title,likes) %>% 
+  distinct(title,.keep_all = TRUE) %>% arrange(desc(likes))%>% head(10)
+
+FR_Top10_most_liked_videos$Title = c("Fake Love official by BTS","MIC Drop Official","Daydream by j-hope","Love Yourself by BTS","Perfect by Ed Sheeran","Euphoria by BTS","Fake Love Extended by BTS","Airplane by j-hope","We Broke Up","Fake Love Official teaser-2")
+
+Map_FR_most_liked = treemap(FR_Top10_most_liked_videos,index = "Title",vSize = "likes",type = "index",title = "Most Liked Videos in France",palette="RdYlBu")
+```
+
+## Top 10 Most Viewed videos in France
+
+```{r}
+FR_Top10_most_viewed_videos = frv %>% select(title,channel_title,views) %>% 
+  distinct(title,.keep_all = TRUE) %>% arrange(desc(views))%>% head(10)
+
+FR_Top10_most_viewed_videos$Title = c("X(EQUIS) Official","Fake Love official by BTS","Perfect by Ed Sheeran","Asesina by Brytiago Darell","The Shape of 2017 - Youtube Rewind","El Cavo by Prince Royce","Sanju Official Trailer","To our Daughter","Avengers:Infinity War Official Trailer","Deadpool 2 Trailer")
+
+Map_FR_most_viewed = treemap(FR_Top10_most_viewed_videos,index = "Title",vSize = "views",type = "index",title = "Most Viewed Videos in France",palette="RdYlBu")
+```
+
+### Germany Data
+## Adding categories to the data frame
+
+```{r}
+gev = gev %>% mutate(category = case_when(
+  category_id== '1' ~ 'Film and Animation',
+  category_id== '2' ~ 'Autos & Vehicles',
+  category_id== '10'~ 'Music',
+  category_id== '15'~ 'Pets and Animals',
+  category_id== '17'~ 'Sports',
+  category_id== '18'~ 'Short Movies',
+  category_id== '19'~ 'Travel and Events',
+  category_id== '20'~'Gaming',
+  category_id== '21'~'Videoblogging',
+  category_id== '22'~ 'People and Blogs',
+  category_id== '23'~ 'Comedy',
+  category_id== '24'~ 'Entertainment',
+  category_id== '25'~ 'News and Politics',
+  category_id== '26'~ 'How to and Style',
+  category_id== '27'~ 'Education',
+  category_id== '28'~ 'Science and Technology',
+  category_id== '29'~ 'Nonprofits & Activism',
+  category_id== '30'~ 'Movies',
+  category_id== '31'~ 'Anime/Animation',
+  category_id== '32'~ 'Action/Adventure',
+  category_id== '33'~ 'Classics',
+  category_id== '34'~ 'Comedy',
+  category_id== '35'~ 'Documentary',
+  category_id== '36'~ 'Drama',
+  category_id== '37'~ 'Family',
+  category_id== '38'~ 'Foreign',
+  category_id== '39'~ 'Horror',
+  category_id== '40'~ 'Sci-Fi/Fantasy',
+  category_id== '41'~ 'Thriller',
+  category_id== '42'~ 'Shorts',
+  category_id== '43'~ 'Shows',
+  category_id== '44'~ 'Trailers'))
+```
+
+## Views per Category in Germany
+
+```{r}
+ggplot(gev,aes(category,views))+geom_boxplot(fill = "purple",color = "blue")+scale_y_log10()+
+  theme(text = element_text(size=10),axis.text.x = element_text(angle=90, hjust=1))
+```
+
+## Top 10 popular Categories in Germany
+
+```{r}
+GE_Top10_Popular_Categories = gev %>% count(category)%>% 
+  arrange(desc(n))%>% head(10)%>%rename("No.of.Videos" = n)
+```
+
+## Top 10 Most liked videos in Germany
+
+```{r}
+GE_Top10_most_liked_videos = gev %>% select(title,channel_title,likes) %>% 
+  distinct(title,.keep_all = TRUE) %>% arrange(desc(likes))%>% head(10)
+
+GE_Top10_most_liked_videos$Title = c("Fake Love official by BTS","MIC Drop Official","Daydream by j-hope","Love Yourself by BTS","Avengers:Infinity War Trailer","Perfect by Ed Sheeran","Euphoria by BTS","Fake Love Extended by BTS","Chame Le Culpa by Demi Lovato","We Broke Up")
+
+Map_GE_most_liked = treemap(GE_Top10_most_liked_videos,index = "Title",vSize = "likes",type = "index",title = "Most Liked Videos in Germany",palette="RdYlBu")
+```
+
+## Top 10 Most Viewed videos in Germany
+
+```{r}
+GE_Top10_most_viewed_videos = gev %>% select(title,channel_title,views) %>% 
+  distinct(title,.keep_all = TRUE) %>% arrange(desc(views))%>% head(10)
+
+GE_Top10_most_viewed_videos$Title = c("X(EQUIS) Official","Fake Love official by BTS","Avengers:Infinity War Trailer","Perfect by Ed Sheeran","Chame Le Cupla by Demi Lovato","Bipolar Official","The Shape of 2017 - Youtube Rewind","Sanju Official Trailer","To our Daughter","Avengers:Infinity War Official Trailer")
+
+Map_GE_most_viewed = treemap(GE_Top10_most_viewed_videos,index = "Title",vSize = "views",type = "index",title = "Most Viewed Videos in Germany",palette="RdYlBu")
+```
+
+
+### Let's see what's common across regions
+## Popular Categories across Countries
+
+```{r}
+Popular_categories = inner_join(full_join(US_Top10_Popular_Categories,CA_Top10_Popular_Categories,by = 'category'),
+                                full_join(full_join(GB_Top10_Popular_Categories,FR_Top10_Popular_Categories,by = 'category'),
+                                          GE_Top10_Popular_Categories,by = 'category'),by = 'category')
+names(Popular_categories) = c("Category","USA" , "Canada" ,"Great Britian" ,"France","Germany")
+
+df = gather(Popular_categories,country,videos,USA:Germany)
+
+df1 = df %>% group_by(Category) %>% count(videos)%>%select(Category,videos)
+
+df2 <- na.omit(df1)%>%
+  group_by(Category) %>%
+  summarise(volume = sum(videos)) %>%
+  mutate(share=volume/sum(volume)*100.0) %>%
+  arrange(desc(volume))
+
+ggplot(df2,aes(x="", y=share, fill=Category))+
+  geom_bar(width = 1, size = 1, stat = "identity")+
+  coord_polar("y")+
+  geom_text(aes(label = paste0(round(share), "%")), 
+            position = position_stack(vjust = 0.5)) +
+  labs(x = NULL, y = NULL, fill = NULL, 
+       title = "Popular Categories") +
+  guides(fill = guide_legend(reverse = TRUE)) +
+  theme_classic() +
+  theme(axis.line = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        plot.title = element_text(hjust = 0.5, color = "red"))
+```
+
+### Represenation of Countries and Categories with respect to no.of videos
+
+```{r}
+ggplot(df,aes(Category,country))+geom_tile(aes(fill =videos),color = "white")+
+  scale_fill_gradient(low = "light blue", high = "steelblue") +
+  ylab("Country ") +
+  xlab("Category") +
+  theme(legend.title = element_text(size = 10),
+        legend.text = element_text(size = 12),
+        plot.title = element_text(size=16),
+        axis.title=element_text(size=14,face="bold"),
+        axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(fill = "Videos")
+```
+
+## Title wordcloud
+#Testing a bug
+
+```{r}
+
+corpus = Corpus(VectorSource(list(sample(videos$title,size=2000))))
+corpus = tm_map(corpus, removePunctuation)
+corpus = tm_map(corpus, content_transformer(tolower))
+corpus = tm_map(corpus, removeNumbers) 
+corpus = tm_map(corpus, stripWhitespace)
+corpus = tm_map(corpus, removeWords, stopwords('english'))
+dtm_eap = DocumentTermMatrix(VCorpus(VectorSource(corpus[[1]]$content)))
+freq_eap <- colSums(as.matrix(dtm_eap))
+sentiments_eap = calculate_sentiment(names(freq_eap))
+sent_video = cbind(sentiments_eap, as.data.frame(freq_eap))
+sent_video[contains(match = "uu",vars = sent_video$text),"freq_eap"] <- 0L
+wordcloud(sent_video$text,sent_video$freq, min.freq=5,colors=brewer.pal(6,"Dark2"),random.order = F)
+
+```
+
+###sentiment analysis
+
+```{r}
+set.seed(12)
+text = array(sample(unique(usv$description),1000))
+txt_corpus = Corpus(VectorSource(text))
+# remove white space
+tm_map = tm_map (txt_corpus, stripWhitespace)
+# remove punctuations
+tm_map = tm_map (tm_map, removePunctuation)
+# to remove numbers
+tm_map = tm_map (tm_map, removeNumbers)
+# to remove stop words(like 'as' 'the' etc..)
+tm_map = tm_map (tm_map, removeWords, stopwords("english"))
+# remove URLs
+removeURL = function(x) gsub("http[[:alnum:]]*", "", x)
+tm_map = tm_map(tm_map, removeURL)
+#to create stem document
+tm_map = tm_map (tm_map, stemDocument)
+#creating termdocumentmatrix
+Matrix = TermDocumentMatrix(tm_map) 
+# converting into matrix
+matrix_c = as.matrix (Matrix)
+# frequency data
+freq = sort (rowSums (matrix_c))
+#creating wordcloud
+tmdata = data.frame (words=names(freq), freq)
+Word_Cloud = wordcloud (tmdata$words, tmdata$freq, max.words=200, min.freq=3, scale=c(7,.5), random.order=FALSE, colors=brewer.pal(8,"Dark2"))
+```
+
+

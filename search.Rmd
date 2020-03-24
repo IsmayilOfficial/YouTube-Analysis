@@ -84,6 +84,30 @@ yt_oauth(app_id = app_id, app_secret = app_secret)
 
 
 ```
+```{r Accaunt 4}
+#
+library(tuber)
+app_id = '383223422167-3hpnb0rsd2i9mqe54d89fi8b7jaut0u5.apps.googleusercontent.com'
+
+app_secret = 'hZR5_k-a2Muynyqt1Y9q1pv2'
+
+
+
+
+# establishing connecting with YouTube
+
+
+
+
+# credentials 
+
+yt_oauth(app_id = app_id, app_secret = app_secret)
+
+
+
+```
+
+
 ```{r}
 
 

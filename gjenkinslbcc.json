@@ -1,0 +1,996 @@
+[
+    {
+        "link": "https://www.youtube.com//user/gjenkinslbcc/playlists?view=50&sort=dd&shelf_id=2",
+        "playlists": [
+            {
+                "link": "https://www.youtube.com//playlist?list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3",
+                "title": "1: CS22 - Python Data Structures/Algorithms Class - Introduction",
+                "videos": [
+                    {
+                        "description": "Short video to cover installing Python 3.8, PyCharm IDE onto a #Windows10 system. This video includes how to get places you might get stuck and about some settings should use as a new python learner.Sites referenced  python.org and www.jetbrains.com/pycharm/",
+                        "dislikes": "1",
+                        "likes": "82",
+                        "link": "https://www.youtube.com//watch?v=AUiM1UaRCPc&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=2&t=0s",
+                        "publication_date": " jaan 2020",
+                        "short_link": "https://youtu.be/AUiM1UaRCPc",
+                        "time": "12:29",
+                        "title": "Install #Python 3.8 and #PyCharm on Windows 10",
+                        "views": "4017"
+                    },
+                    {
+                        "description": "This is the second lecture on the Introduction chapter. I introduce the topic of data structures and algorithms starting with what is computer science.These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "20",
+                        "link": "https://www.youtube.com//watch?v=HdZHjXfvIEU&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=3&t=0s",
+                        "publication_date": " jaan 2015",
+                        "short_link": "https://youtu.be/HdZHjXfvIEU",
+                        "time": "9:12",
+                        "title": "Introduction 1 | why study data structures and algorithms",
+                        "views": "1582"
+                    },
+                    {
+                        "description": "This is the second lecture on the Introduction chapter. I introduce the topic of data structures and algorithms starting with what is computer science. These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1wwThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "4",
+                        "link": "https://www.youtube.com//watch?v=jDx_BQVd31U&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=4&t=0s",
+                        "publication_date": " jaan 2015",
+                        "short_link": "https://youtu.be/jDx_BQVd31U",
+                        "time": "7:55",
+                        "title": "Introduction 2 | why study data structures and algorithms",
+                        "views": "753"
+                    },
+                    {
+                        "description": "We will be using PyVCharm and the books interactive python in class, but I also wanted to show you the python and idle command line ways, and the iPython Notebook that is all the rage with scientists.These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "11",
+                        "link": "https://www.youtube.com//watch?v=wwmWQVxMNcM&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=5&t=0s",
+                        "publication_date": " jaan 2015",
+                        "short_link": "https://youtu.be/wwmWQVxMNcM",
+                        "time": "14:57",
+                        "title": "Introduction 3 | Four ways to run python",
+                        "views": "813"
+                    },
+                    {
+                        "description": "We now cover simple expressions involving numbers, booleans, the operators, defining variables and assignment. These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "5",
+                        "link": "https://www.youtube.com//watch?v=LZKjfdLPs-A&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=6&t=0s",
+                        "publication_date": " sept 2017",
+                        "short_link": "https://youtu.be/LZKjfdLPs-A",
+                        "time": "12:36",
+                        "title": "Introduction 4 | atomic types, ops, variables",
+                        "views": "481"
+                    },
+                    {
+                        "description": "Introduction to Lists, operators, working with lists, and slices These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "3",
+                        "link": "https://www.youtube.com//watch?v=oETSCRJQEQI&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=7&t=0s",
+                        "publication_date": " sept 2017",
+                        "short_link": "https://youtu.be/oETSCRJQEQI",
+                        "time": "11:00",
+                        "title": "Introduction 5 | Start of Lists",
+                        "views": "378"
+                    },
+                    {
+                        "description": "the List methods, __add__, and range These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "2",
+                        "link": "https://www.youtube.com//watch?v=ikko6QD5tlQ&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=8&t=0s",
+                        "publication_date": " sept 2017",
+                        "short_link": "https://youtu.be/ikko6QD5tlQ",
+                        "time": "10:21",
+                        "title": "Introduction 6 | List methods, add method, & range",
+                        "views": "326"
+                    },
+                    {
+                        "description": "String use, operators and methods These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "2",
+                        "link": "https://www.youtube.com//watch?v=pMwvexbEWZc&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=9&t=0s",
+                        "publication_date": "27. sept 2017",
+                        "short_link": "https://youtu.be/pMwvexbEWZc",
+                        "time": "8:19",
+                        "title": "Introduction 7 | Strings",
+                        "views": "182"
+                    },
+                    {
+                        "description": "",
+                        "dislikes": null,
+                        "likes": null,
+                        "link": "https://www.youtube.com//watch?v=aw4Hn1s3wcM&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=10&t=0s",
+                        "publication_date": "",
+                        "short_link": "https://www.youtube.com//watch?v=aw4Hn1s3wcM&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=10&t=0s",
+                        "time": "10:54",
+                        "title": "YouTube",
+                        "views": null
+                    },
+                    {
+                        "description": "Python dictionaries operators and methods These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "4",
+                        "link": "https://www.youtube.com//watch?v=DesHqcT3554&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=11&t=0s",
+                        "publication_date": " sept 2017",
+                        "short_link": "https://youtu.be/DesHqcT3554",
+                        "time": "13:16",
+                        "title": "Introduction 9 | Dictionaries",
+                        "views": "191"
+                    },
+                    {
+                        "description": "These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "1",
+                        "link": "https://www.youtube.com//watch?v=ordYoarkoEo&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=12&t=0s",
+                        "publication_date": " sept 2017",
+                        "short_link": "https://youtu.be/ordYoarkoEo",
+                        "time": "7:30",
+                        "title": "Introduction 10 | input, more about print function",
+                        "views": "138"
+                    },
+                    {
+                        "description": "How to use the modulus string formatting operator to convert how data is represented in strings and used for output. These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "1",
+                        "link": "https://www.youtube.com//watch?v=RTIRHYV3Sjs&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=13&t=0s",
+                        "publication_date": " sept 2017",
+                        "short_link": "https://youtu.be/RTIRHYV3Sjs",
+                        "time": "8:46",
+                        "title": "Introduction 11 | Formating",
+                        "views": "140"
+                    },
+                    {
+                        "description": "Python control structures are covered for students who have already learned another language.This is part of my video course: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "7",
+                        "link": "https://www.youtube.com//watch?v=c64cJHAJSn4&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=14&t=0s",
+                        "publication_date": " veebr 2015",
+                        "short_link": "https://youtu.be/c64cJHAJSn4",
+                        "time": "12:32",
+                        "title": "Introduction 12 | Control Structures in Python",
+                        "views": "1435"
+                    },
+                    {
+                        "description": "Exceptions are explained including try except statement and the raise statement. These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1wwThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "1",
+                        "link": "https://www.youtube.com//watch?v=dEZbvb1RQq4&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=15&t=0s",
+                        "publication_date": " veebr 2015",
+                        "short_link": "https://youtu.be/dEZbvb1RQq4",
+                        "time": "8:40",
+                        "title": "Introduction 13 | Exceptions",
+                        "views": "214"
+                    },
+                    {
+                        "description": "Short introduction to defining functions.Video Course link: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "2",
+                        "link": "https://www.youtube.com//watch?v=HLqmJFINl_g&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=16&t=0s",
+                        "publication_date": " jaan 2018",
+                        "short_link": "https://youtu.be/HLqmJFINl_g",
+                        "time": "6:08",
+                        "title": "Introduction 14 | Functions",
+                        "views": "133"
+                    },
+                    {
+                        "description": "Introduction of Object oriented programming by way of showing a Fraction class with magic methods Video Course link: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "5",
+                        "link": "https://www.youtube.com//watch?v=kTGW-LTsok4&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=17&t=0s",
+                        "publication_date": " sept 2017",
+                        "short_link": "https://youtu.be/kTGW-LTsok4",
+                        "time": "8:55",
+                        "title": "Introduction 15 | OOP-Fraction 1",
+                        "views": "271"
+                    },
+                    {
+                        "description": "Fractions continuedVideo Course link: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "2",
+                        "link": "https://www.youtube.com//watch?v=SBwNI1lBPfo&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=18&t=0s",
+                        "publication_date": " sept 2017",
+                        "short_link": "https://youtu.be/SBwNI1lBPfo",
+                        "time": "11:36",
+                        "title": "Introduction 16 | Fraction 2",
+                        "views": "169"
+                    },
+                    {
+                        "description": "Fractions continuedVideo Course link: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "2",
+                        "link": "https://www.youtube.com//watch?v=XgIkGUl7cGA&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=19&t=0s",
+                        "publication_date": " sept 2017",
+                        "short_link": "https://youtu.be/XgIkGUl7cGA",
+                        "time": "9:21",
+                        "title": "Introduction 17 | Fraction 3",
+                        "views": "133"
+                    },
+                    {
+                        "description": "Covering Python Inheritance and installing and starting a iPython NotebookHow to install iPython Link is here:  https://goo.gl/7vwqGnVideo Course link: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "4",
+                        "link": "https://www.youtube.com//watch?v=chVm1zNtLao&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=20&t=0s",
+                        "publication_date": " veebr 2015",
+                        "short_link": "https://youtu.be/chVm1zNtLao",
+                        "time": "11:46",
+                        "title": "Introduction 18 | iPython and inheritance",
+                        "views": "285"
+                    },
+                    {
+                        "description": "Python object oriented inheritance, second lectureVideo Course link: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "0",
+                        "link": "https://www.youtube.com//watch?v=-_a1_W9zmNo&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=21&t=0s",
+                        "publication_date": " veebr 2015",
+                        "short_link": "https://youtu.be/-_a1_W9zmNo",
+                        "time": "12:19",
+                        "title": "Introduction 19 | Inheritance 2",
+                        "views": "195"
+                    },
+                    {
+                        "description": "Lecture introducing Composition vs. Inheritance (Has-A relation), and the concept of polymorphismVideo Course link: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "0",
+                        "link": "https://www.youtube.com//watch?v=xGPZ97PG14g&list=PLtbC5OfOR8aqA6CJwWTRUITgGpUy1Umr3&index=22&t=0s",
+                        "publication_date": " veebr 2015",
+                        "short_link": "https://youtu.be/xGPZ97PG14g",
+                        "time": "12:36",
+                        "title": "Introduction 20 | Has-A and Polymorphism",
+                        "views": "224"
+                    }
+                ]
+            },
+            {
+                "link": "https://www.youtube.com//playlist?list=PLtbC5OfOR8aops-jzO_fzNJ-6Q6_Tblro",
+                "title": "2: CS22 - Analysis",
+                "videos": [
+                    {
+                        "description": "We introduce algorithm analysts and Omega or what is called Big-O notation and the categories of Big-O These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtImages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "2",
+                        "link": "https://www.youtube.com//watch?v=xTScjlkGHJU&list=PLtbC5OfOR8aops-jzO_fzNJ-6Q6_Tblro&index=2&t=0s",
+                        "publication_date": " veebr 2015",
+                        "short_link": "https://youtu.be/xTScjlkGHJU",
+                        "time": "12:45",
+                        "title": "Analysis 1 | Big-O",
+                        "views": "486"
+                    },
+                    {
+                        "description": "Second part of the Analysis of Algorithms, specifically detailing Big-O or Omega notation for the speed of algorithms These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1wwThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "0",
+                        "link": "https://www.youtube.com//watch?v=ckhWzSQfpCA&list=PLtbC5OfOR8aops-jzO_fzNJ-6Q6_Tblro&index=3&t=0s",
+                        "publication_date": " veebr 2015",
+                        "short_link": "https://youtu.be/ckhWzSQfpCA",
+                        "time": "9:15",
+                        "title": "Analysis 2 | Big-O 2",
+                        "views": "197"
+                    },
+                    {
+                        "description": "Explore Big-O of four ways on testing for two strings being anagrams of each other.These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "4",
+                        "link": "https://www.youtube.com//watch?v=SoFjox6VJGs&list=PLtbC5OfOR8aops-jzO_fzNJ-6Q6_Tblro&index=4&t=0s",
+                        "publication_date": " sept 2017",
+                        "short_link": "https://youtu.be/SoFjox6VJGs",
+                        "time": "11:35",
+                        "title": "Analysis 3 | Anagrams Example 1",
+                        "views": "141"
+                    },
+                    {
+                        "description": "Anagrams continuedThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "1",
+                        "link": "https://www.youtube.com//watch?v=71mWSXVP-ug&list=PLtbC5OfOR8aops-jzO_fzNJ-6Q6_Tblro&index=5&t=0s",
+                        "publication_date": " sept 2017",
+                        "short_link": "https://youtu.be/71mWSXVP-ug",
+                        "time": "12:07",
+                        "title": "Analysis 4 | Anagrams Example 2",
+                        "views": "128"
+                    },
+                    {
+                        "description": "Python, how to user the timeit module to time list and other codeThis is part of my video course: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "1",
+                        "likes": "17",
+                        "link": "https://www.youtube.com//watch?v=0-tNtRt7qNY&list=PLtbC5OfOR8aops-jzO_fzNJ-6Q6_Tblro&index=6&t=0s",
+                        "publication_date": "m\u00e4rts 2015",
+                        "short_link": "https://youtu.be/0-tNtRt7qNY",
+                        "time": "7:01",
+                        "title": "Analysis 5 | Timeit 1",
+                        "views": "3691"
+                    },
+                    {
+                        "description": "continue with python timeit, and about import vs from.These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "6",
+                        "link": "https://www.youtube.com//watch?v=Kj844DxzVoY&list=PLtbC5OfOR8aops-jzO_fzNJ-6Q6_Tblro&index=7&t=0s",
+                        "publication_date": "m\u00e4rts 2015",
+                        "short_link": "https://youtu.be/Kj844DxzVoY",
+                        "time": "9:37",
+                        "title": "Analysis 6 | timeit 2",
+                        "views": "1038"
+                    },
+                    {
+                        "description": "We are using timeit to get times and create a graph of using the in operator on a List and Dict and plotting the times on the same graph to visualize the Big-O of in operator on each data structure.",
+                        "dislikes": "0",
+                        "likes": "2",
+                        "link": "https://www.youtube.com//watch?v=w79y-PjSxZs&list=PLtbC5OfOR8aops-jzO_fzNJ-6Q6_Tblro&index=8&t=0s",
+                        "publication_date": "m\u00e4rts 2015",
+                        "short_link": "https://youtu.be/w79y-PjSxZs",
+                        "time": "12:27",
+                        "title": "Analysis 7 | Timing in List and Dict",
+                        "views": "466"
+                    }
+                ]
+            },
+            {
+                "link": "https://www.youtube.com//playlist?list=PLtbC5OfOR8aqfexTOHSzvdQhfCzp0mZ64",
+                "title": "3: CS22 - Linear Data Structures",
+                "videos": [
+                    {
+                        "description": "About the Stack abstract data type (ADT) and two implementations of stackThis is part of my video course: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "1",
+                        "likes": "16",
+                        "link": "https://www.youtube.com//watch?v=Xo-HASLGZmU&list=PLtbC5OfOR8aqfexTOHSzvdQhfCzp0mZ64&index=2&t=0s",
+                        "publication_date": " m\u00e4rts 2015",
+                        "short_link": "https://youtu.be/Xo-HASLGZmU",
+                        "time": "7:23",
+                        "title": "Linear Data Structures 1 | Stacks",
+                        "views": "3746"
+                    },
+                    {
+                        "description": "Implementation of stack data structure in python using a list.",
+                        "dislikes": "0",
+                        "likes": "3",
+                        "link": "https://www.youtube.com//watch?v=Spd3JKFp_NA&list=PLtbC5OfOR8aqfexTOHSzvdQhfCzp0mZ64&index=3&t=0s",
+                        "publication_date": " m\u00e4rts 2015",
+                        "short_link": "https://youtu.be/Spd3JKFp_NA",
+                        "time": "8:20",
+                        "title": "Linear Data Structures 2 | Stack: implementation",
+                        "views": "723"
+                    },
+                    {
+                        "description": "Stack solution to balanced parentheses' both the simple case and the general case",
+                        "dislikes": "1",
+                        "likes": "1",
+                        "link": "https://www.youtube.com//watch?v=w6rusGR9oic&list=PLtbC5OfOR8aqfexTOHSzvdQhfCzp0mZ64&index=4&t=0s",
+                        "publication_date": " m\u00e4rts 2015",
+                        "short_link": "https://youtu.be/w6rusGR9oic",
+                        "time": "14:44",
+                        "title": "Linear Data Structures 3 | Stack: Parentheses",
+                        "views": "349"
+                    },
+                    {
+                        "description": "Using a stack ADT to do number conversion to base binary, octal, or hexadecimal",
+                        "dislikes": "0",
+                        "likes": "5",
+                        "link": "https://www.youtube.com//watch?v=wEDfi_XtRdE&list=PLtbC5OfOR8aqfexTOHSzvdQhfCzp0mZ64&index=5&t=0s",
+                        "publication_date": " m\u00e4rts 2015",
+                        "short_link": "https://youtu.be/wEDfi_XtRdE",
+                        "time": "9:31",
+                        "title": "Linear Data Structures 4 | Stack: binary & hex converter",
+                        "views": "649"
+                    },
+                    {
+                        "description": "Show how to use stacks to both convert infix to postfix and how to evaluate postfix",
+                        "dislikes": "0",
+                        "likes": "4",
+                        "link": "https://www.youtube.com//watch?v=lFHdtFpqE8w&list=PLtbC5OfOR8aqfexTOHSzvdQhfCzp0mZ64&index=6&t=0s",
+                        "publication_date": " m\u00e4rts 2015",
+                        "short_link": "https://youtu.be/lFHdtFpqE8w",
+                        "time": "9:35",
+                        "title": "Linear Data Structures 5 | infix to postfix 1",
+                        "views": "333"
+                    },
+                    {
+                        "description": "Show how to use stacks to both convert infix to postfix and how to evaluate postfix - part 2",
+                        "dislikes": "0",
+                        "likes": "1",
+                        "link": "https://www.youtube.com//watch?v=qXk573Vnikk&list=PLtbC5OfOR8aqfexTOHSzvdQhfCzp0mZ64&index=7&t=0s",
+                        "publication_date": " m\u00e4rts 2015",
+                        "short_link": "https://youtu.be/qXk573Vnikk",
+                        "time": "8:59",
+                        "title": "Linear Data Structures 6 | infix to postfix 2",
+                        "views": "410"
+                    },
+                    {
+                        "description": "Now we cover the Queue  structuresPlease subscribe at: https://goo.gl/ZgZrZ5These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" at ebook:  https://goo.gl/1GJCgtVideo course: https://teklern.blogspot.com/p/blog-p...Code for course: https://github.com/gerryjenkinslb/cs2...Images of the ebook and code here are attributed to the book \"Problem Solving with Algorithms and Data Structures using Python\" by the Authors Bradley N. Miller and David Ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)  License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "3",
+                        "link": "https://www.youtube.com//watch?v=RHfngV3DpBU&list=PLtbC5OfOR8aqfexTOHSzvdQhfCzp0mZ64&index=8&t=0s",
+                        "publication_date": " m\u00e4rts 2015",
+                        "short_link": "https://youtu.be/RHfngV3DpBU",
+                        "time": "9:11",
+                        "title": "Linear Data Structures 7 | queues1",
+                        "views": "737"
+                    },
+                    {
+                        "description": "",
+                        "dislikes": null,
+                        "likes": null,
+                        "link": "https://www.youtube.com//watch?v=EylhtvHnYRQ&list=PLtbC5OfOR8aqfexTOHSzvdQhfCzp0mZ64&index=9&t=0s",
+                        "publication_date": "",
+                        "short_link": "https://www.youtube.com//watch?v=EylhtvHnYRQ&list=PLtbC5OfOR8aqfexTOHSzvdQhfCzp0mZ64&index=9&t=0s",
+                        "time": "7:12",
+                        "title": "YouTube",
+                        "views": null
+                    },
+                    {
+                        "description": "Last video on QueuesPlease subscribe at: https://goo.gl/ZgZrZ5These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" at ebook:  https://goo.gl/1GJCgtVideo course: https://teklern.blogspot.com/p/blog-p...Code for course: https://github.com/gerryjenkinslb/cs2...Images of the ebook and code here are attributed to the book \"Problem Solving with Algorithms and Data Structures using Python\" by the Authors Bradley N. Miller and David Ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)  License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "1",
+                        "link": "https://www.youtube.com//watch?v=IzwW0pfib7E&list=PLtbC5OfOR8aqfexTOHSzvdQhfCzp0mZ64&index=10&t=0s",
+                        "publication_date": " m\u00e4rts 2015",
+                        "short_link": "https://youtu.be/IzwW0pfib7E",
+                        "time": "7:43",
+                        "title": "Linear Data Structures 9 | queues 3",
+                        "views": "241"
+                    },
+                    {
+                        "description": "What is a Deque, What is its Abstract Data Type for the book, and an example of using it to detect a Palindrome.Please subscribe at: https://goo.gl/ZgZrZ5These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" at ebook:  https://goo.gl/1GJCgtVideo course: https://teklern.blogspot.com/p/blog-p...Code for course: https://github.com/gerryjenkinslb/cs2...Images of the ebook and code here are attributed to the book \"Problem Solving with Algorithms and Data Structures using Python\" by the Authors Bradley N. Miller and David Ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)  License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "1",
+                        "link": "https://www.youtube.com//watch?v=SvG5L6nILyg&list=PLtbC5OfOR8aqfexTOHSzvdQhfCzp0mZ64&index=11&t=0s",
+                        "publication_date": " m\u00e4rts 2018",
+                        "short_link": "https://youtu.be/SvG5L6nILyg",
+                        "time": "6:33",
+                        "title": "Linear Data Structures 10 | Deque",
+                        "views": "77"
+                    },
+                    {
+                        "description": "We cover general list and specifically linked list operations in Python.Code/Slides link: https://goo.gl/ZNGPMU",
+                        "dislikes": "0",
+                        "likes": "4",
+                        "link": "https://www.youtube.com//watch?v=HBhuD5qjU9s&list=PLtbC5OfOR8aqfexTOHSzvdQhfCzp0mZ64&index=12&t=0s",
+                        "publication_date": " m\u00e4rts 2015",
+                        "short_link": "https://youtu.be/HBhuD5qjU9s",
+                        "time": "12:53",
+                        "title": "Linear Data Structures 11 | Lists 1",
+                        "views": "536"
+                    },
+                    {
+                        "description": "Implementing Lists in Python as a linked list. Part 2 These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "1",
+                        "link": "https://www.youtube.com//watch?v=hXgchJ1dsBk&list=PLtbC5OfOR8aqfexTOHSzvdQhfCzp0mZ64&index=13&t=0s",
+                        "publication_date": " m\u00e4rts 2015",
+                        "short_link": "https://youtu.be/hXgchJ1dsBk",
+                        "time": "11:19",
+                        "title": "Linear Data Structures 12 | Lists 2",
+                        "views": "183"
+                    },
+                    {
+                        "description": "List implementation as Linked Lists in Python continued part 3 These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "1",
+                        "link": "https://www.youtube.com//watch?v=C4fdTBVEG2Q&list=PLtbC5OfOR8aqfexTOHSzvdQhfCzp0mZ64&index=14&t=0s",
+                        "publication_date": " m\u00e4rts 2015",
+                        "short_link": "https://youtu.be/C4fdTBVEG2Q",
+                        "time": "14:48",
+                        "title": "Linear Data Structures 13 | Lists 3",
+                        "views": "171"
+                    }
+                ]
+            },
+            {
+                "link": "https://www.youtube.com//playlist?list=PLtbC5OfOR8apSTahYrGIeEcp3nAB2o_CM",
+                "title": "4: CS22- Recursion",
+                "videos": [
+                    {
+                        "description": "Recursion, what it is, and example applications of recursion These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "7",
+                        "link": "https://www.youtube.com//watch?v=lfbNux7FgPs&list=PLtbC5OfOR8apSTahYrGIeEcp3nAB2o_CM&index=2&t=0s",
+                        "publication_date": "apr 2015",
+                        "short_link": "https://youtu.be/lfbNux7FgPs",
+                        "time": "11:53",
+                        "title": "Recursion 1 | Basics 1",
+                        "views": "576"
+                    },
+                    {
+                        "description": "Recursion concept and some example applications These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "3",
+                        "link": "https://www.youtube.com//watch?v=-bDBcOhtEeA&list=PLtbC5OfOR8apSTahYrGIeEcp3nAB2o_CM&index=3&t=0s",
+                        "publication_date": "apr 2015",
+                        "short_link": "https://youtu.be/-bDBcOhtEeA",
+                        "time": "12:14",
+                        "title": "Recursion 2 | Basics 2",
+                        "views": "312"
+                    },
+                    {
+                        "description": "",
+                        "dislikes": null,
+                        "likes": null,
+                        "link": "https://www.youtube.com//watch?v=OEgOfHLSleQ&list=PLtbC5OfOR8apSTahYrGIeEcp3nAB2o_CM&index=4&t=0s",
+                        "publication_date": "",
+                        "short_link": "https://www.youtube.com//watch?v=OEgOfHLSleQ&list=PLtbC5OfOR8apSTahYrGIeEcp3nAB2o_CM&index=4&t=0s",
+                        "time": "4:29",
+                        "title": "YouTube",
+                        "views": null
+                    },
+                    {
+                        "description": "Showing recursion through turtle graphics and drawing a recursive tree.This is part of my video course: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "7",
+                        "link": "https://www.youtube.com//watch?v=31pKs9UuUvA&list=PLtbC5OfOR8apSTahYrGIeEcp3nAB2o_CM&index=5&t=0s",
+                        "publication_date": " apr 2015",
+                        "short_link": "https://youtu.be/31pKs9UuUvA",
+                        "time": "9:43",
+                        "title": "Recursion 4 | turtle graphics 1",
+                        "views": "2096"
+                    },
+                    {
+                        "description": "Showing recursion through turtle graphics and drawing a recursive tree.These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "2",
+                        "likes": "8",
+                        "link": "https://www.youtube.com//watch?v=yLNSTRwn-gY&list=PLtbC5OfOR8apSTahYrGIeEcp3nAB2o_CM&index=6&t=0s",
+                        "publication_date": " apr 2015",
+                        "short_link": "https://youtu.be/yLNSTRwn-gY",
+                        "time": "9:44",
+                        "title": "Recursion 5 | turtle graphics 2",
+                        "views": "750"
+                    },
+                    {
+                        "description": "Recursion Siepinski Triangle recurse fractal art with thong These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "1",
+                        "likes": "9",
+                        "link": "https://www.youtube.com//watch?v=v-UuIBkpVCo&list=PLtbC5OfOR8apSTahYrGIeEcp3nAB2o_CM&index=7&t=0s",
+                        "publication_date": " apr 2015",
+                        "short_link": "https://youtu.be/v-UuIBkpVCo",
+                        "time": "7:37",
+                        "title": "Recursion 6 | Siepinski Triangle",
+                        "views": "2120"
+                    },
+                    {
+                        "description": "Recursion used to solve a mazeThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" at ebook:  https://goo.gl/1GJCgtVideo course: https://teklern.blogspot.com/p/blog-p...Code for course: https://github.com/gerryjenkinslb/cs2...Images of the ebook and code here are attributed to the book \"Problem Solving with Algorithms and Data Structures using Python\" by the Authors Bradley N. Miller and David Ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)  License link: https://goo.gl/m2m1ww",
+                        "dislikes": "1",
+                        "likes": "7",
+                        "link": "https://www.youtube.com//watch?v=TB1p93msBFQ&list=PLtbC5OfOR8apSTahYrGIeEcp3nAB2o_CM&index=8&t=0s",
+                        "publication_date": " apr 2015",
+                        "short_link": "https://youtu.be/TB1p93msBFQ",
+                        "time": "14:55",
+                        "title": "Recursion 8 | Maze",
+                        "views": "1385"
+                    },
+                    {
+                        "description": "subscribe: https://goo.gl/ZgZrZ5Picking the Minimum Coins to make change and how Dynamic Programming is the best solution for this problem. Errata: text on screen at (1:25) should be = 63 not = 68Please subscribe to my channel before I lose funding.This is part of my video course: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1wwSuggestions for new content box: https://teklern.blogspot.com/p/loadin...",
+                        "dislikes": "1",
+                        "likes": "44",
+                        "link": "https://www.youtube.com//watch?v=Rl8P9SJptQM&list=PLtbC5OfOR8apSTahYrGIeEcp3nAB2o_CM&index=9&t=0s",
+                        "publication_date": "mai 2015",
+                        "short_link": "https://youtu.be/Rl8P9SJptQM",
+                        "time": "12:01",
+                        "title": "Recursion 9  | Min Coins - Dynamic Programming 1",
+                        "views": "8486"
+                    },
+                    {
+                        "description": "Recursion and and Minimum coin problem continued. The cache & the dynamic programming solutions. from ebook:  https://goo.gl/1GJCgtThis is part of my video course: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David Ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "27",
+                        "link": "https://www.youtube.com//watch?v=3FMuZEtOvsg&list=PLtbC5OfOR8apSTahYrGIeEcp3nAB2o_CM&index=10&t=0s",
+                        "publication_date": "mai 2015",
+                        "short_link": "https://youtu.be/3FMuZEtOvsg",
+                        "time": "10:17",
+                        "title": "Recursion 10 | Min Coin - Dynamic Programming 2",
+                        "views": "2749"
+                    }
+                ]
+            },
+            {
+                "link": "https://www.youtube.com//playlist?list=PLtbC5OfOR8aryMF-yGBH6UjMmcfuBIvVd",
+                "title": "5: CS22 - Search/Sort",
+                "videos": [
+                    {
+                        "description": "How to do Sequential and Binary search algorithm. These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "3",
+                        "link": "https://www.youtube.com//watch?v=c44forbBqM0&list=PLtbC5OfOR8aryMF-yGBH6UjMmcfuBIvVd&index=2&t=0s",
+                        "publication_date": "mai 2015",
+                        "short_link": "https://youtu.be/c44forbBqM0",
+                        "time": "10:27",
+                        "title": "Search/Sort 1 | Sequential and binary Search 1",
+                        "views": "376"
+                    },
+                    {
+                        "description": "Sequential and binary search algorithms in python, implementation and analysis. These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "2",
+                        "link": "https://www.youtube.com//watch?v=QFdNHiUvf6o&list=PLtbC5OfOR8aryMF-yGBH6UjMmcfuBIvVd&index=3&t=0s",
+                        "publication_date": "mai 2015",
+                        "short_link": "https://youtu.be/QFdNHiUvf6o",
+                        "time": "8:38",
+                        "title": "Search:Sort 2 | Sequential and binary Search 2",
+                        "views": "246"
+                    },
+                    {
+                        "description": "Using a hash table for very fast searchingThis is part of my video course: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "1",
+                        "likes": "4",
+                        "link": "https://www.youtube.com//watch?v=HPN-jNnQ3zs&list=PLtbC5OfOR8aryMF-yGBH6UjMmcfuBIvVd&index=4&t=0s",
+                        "publication_date": "mai 2015",
+                        "short_link": "https://youtu.be/HPN-jNnQ3zs",
+                        "time": "13:35",
+                        "title": "Search/Sort 3 | Hash tables 1",
+                        "views": "1274"
+                    },
+                    {
+                        "description": "",
+                        "dislikes": null,
+                        "likes": null,
+                        "link": "https://www.youtube.com//watch?v=e0jHauHRmKc&list=PLtbC5OfOR8aryMF-yGBH6UjMmcfuBIvVd&index=5&t=0s",
+                        "publication_date": "",
+                        "short_link": "https://www.youtube.com//watch?v=e0jHauHRmKc&list=PLtbC5OfOR8aryMF-yGBH6UjMmcfuBIvVd&index=5&t=0s",
+                        "time": "12:38",
+                        "title": "YouTube",
+                        "views": null
+                    },
+                    {
+                        "description": "Last section of hash table with the MAP ADT and a discussion of performance These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "3",
+                        "link": "https://www.youtube.com//watch?v=IoaCqPi7uYs&list=PLtbC5OfOR8aryMF-yGBH6UjMmcfuBIvVd&index=6&t=0s",
+                        "publication_date": " mai 2015",
+                        "short_link": "https://youtu.be/IoaCqPi7uYs",
+                        "time": "11:39",
+                        "title": "Search/Sort 5 | Hash tables 3",
+                        "views": "235"
+                    },
+                    {
+                        "description": "bubble sortThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtImages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David Ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "0",
+                        "link": "https://www.youtube.com//watch?v=0nE_Zy5lBpk&list=PLtbC5OfOR8aryMF-yGBH6UjMmcfuBIvVd&index=7&t=0s",
+                        "publication_date": " sept 2017",
+                        "short_link": "https://youtu.be/0nE_Zy5lBpk",
+                        "time": "5:17",
+                        "title": "Search/Sort 6 | bubble sort",
+                        "views": "78"
+                    },
+                    {
+                        "description": "About insertion sort algorithm in pythonThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtImages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David Ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "0",
+                        "link": "https://www.youtube.com//watch?v=pTZA3CsluFk&list=PLtbC5OfOR8aryMF-yGBH6UjMmcfuBIvVd&index=8&t=0s",
+                        "publication_date": " sept 2017",
+                        "short_link": "https://youtu.be/pTZA3CsluFk",
+                        "time": "3:36",
+                        "title": "Search/Sort 7 | selection sort",
+                        "views": "50"
+                    },
+                    {
+                        "description": "About insertion sort algorithm in pythonThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtImages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David Ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "0",
+                        "link": "https://www.youtube.com//watch?v=wTPlGyRRx2M&list=PLtbC5OfOR8aryMF-yGBH6UjMmcfuBIvVd&index=9&t=0s",
+                        "publication_date": "okt 2017",
+                        "short_link": "https://youtu.be/wTPlGyRRx2M",
+                        "time": "5:08",
+                        "title": "Search/Sort 8 | insertion sort",
+                        "views": "99"
+                    },
+                    {
+                        "description": "The Shell sort algorithmThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtImages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David Ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "0",
+                        "link": "https://www.youtube.com//watch?v=E1VDxCcLh4E&list=PLtbC5OfOR8aryMF-yGBH6UjMmcfuBIvVd&index=10&t=0s",
+                        "publication_date": " sept 2017",
+                        "short_link": "https://youtu.be/E1VDxCcLh4E",
+                        "time": "3:46",
+                        "title": "Search/Sort 9 | shell sort",
+                        "views": "43"
+                    },
+                    {
+                        "description": "Merge sort algorithm in pythonThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtImages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David Ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "1",
+                        "link": "https://www.youtube.com//watch?v=MZru28DO1IE&list=PLtbC5OfOR8aryMF-yGBH6UjMmcfuBIvVd&index=11&t=0s",
+                        "publication_date": " sept 2017",
+                        "short_link": "https://youtu.be/MZru28DO1IE",
+                        "time": "4:43",
+                        "title": "Search/Sort 10 | merge sort",
+                        "views": "99"
+                    },
+                    {
+                        "description": "Quick sort algorithm in pythonThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtImages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David Ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "0",
+                        "link": "https://www.youtube.com//watch?v=J7-NGLLBvo0&list=PLtbC5OfOR8aryMF-yGBH6UjMmcfuBIvVd&index=12&t=0s",
+                        "publication_date": " sept 2017",
+                        "short_link": "https://youtu.be/J7-NGLLBvo0",
+                        "time": "8:04",
+                        "title": "Search/Sort 11 | quick sort",
+                        "views": "91"
+                    }
+                ]
+            },
+            {
+                "link": "https://www.youtube.com//playlist?list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3",
+                "title": "6: CS22 - Trees",
+                "videos": [
+                    {
+                        "description": "Introduction to Tree data structures, and definitions of terminology we will be using. These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "4",
+                        "link": "https://www.youtube.com//watch?v=EuHuhE9tDx4&list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3&index=2&t=0s",
+                        "publication_date": " sept 2017",
+                        "short_link": "https://youtu.be/EuHuhE9tDx4",
+                        "time": "13:00",
+                        "title": "Trees 1 | Introduction and definitions",
+                        "views": "316"
+                    },
+                    {
+                        "description": "Binary Tree implementation using a python list and using a linked node structure This is part of my video course: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)",
+                        "dislikes": "0",
+                        "likes": "3",
+                        "link": "https://www.youtube.com//watch?v=DRqYykf-LfI&list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3&index=3&t=0s",
+                        "publication_date": " sept 2017",
+                        "short_link": "https://youtu.be/DRqYykf-LfI",
+                        "time": "14:16",
+                        "title": "Trees 2 | Tree Code Implementations",
+                        "views": "340"
+                    },
+                    {
+                        "description": "Building a parse tree with our tree ADT. These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "17",
+                        "link": "https://www.youtube.com//watch?v=TastAWp8eIE&list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3&index=4&t=0s",
+                        "publication_date": " mai 2015",
+                        "short_link": "https://youtu.be/TastAWp8eIE",
+                        "time": "6:11",
+                        "title": "Trees 3 | parse code 1",
+                        "views": "2504"
+                    },
+                    {
+                        "description": "Code for parse tree building and evaluation These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "2",
+                        "link": "https://www.youtube.com//watch?v=dj_ga1wZEgU&list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3&index=5&t=0s",
+                        "publication_date": " mai 2015",
+                        "short_link": "https://youtu.be/dj_ga1wZEgU",
+                        "time": "6:13",
+                        "title": "Trees 4 | parse code 2",
+                        "views": "494"
+                    },
+                    {
+                        "description": "",
+                        "dislikes": null,
+                        "likes": null,
+                        "link": "https://www.youtube.com//watch?v=5xy7TKZQL1U&list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3&index=6&t=0s",
+                        "publication_date": "",
+                        "short_link": "https://www.youtube.com//watch?v=5xy7TKZQL1U&list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3&index=6&t=0s",
+                        "time": "6:46",
+                        "title": "YouTube",
+                        "views": null
+                    },
+                    {
+                        "description": "The tree ways of traversing a tree structure. These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "0",
+                        "link": "https://www.youtube.com//watch?v=elH9qqB52m8&list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3&index=7&t=0s",
+                        "publication_date": " mai 2015",
+                        "short_link": "https://youtu.be/elH9qqB52m8",
+                        "time": "7:12",
+                        "title": "Trees 6 | Traverse Tree 2",
+                        "views": "97"
+                    },
+                    {
+                        "description": "What is a Priority Queue. What is a Binary Heap data structure. These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "5",
+                        "link": "https://www.youtube.com//watch?v=GXq4sV-eo3g&list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3&index=8&t=0s",
+                        "publication_date": " mai 2015",
+                        "short_link": "https://youtu.be/GXq4sV-eo3g",
+                        "time": "5:19",
+                        "title": "Trees 7 | Priority Queue - Binary Heap 1",
+                        "views": "518"
+                    },
+                    {
+                        "description": "What is a Priority Queue. What is a Binary Heap data structure. This is part of my video course: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "3",
+                        "link": "https://www.youtube.com//watch?v=2q1Iaa-P2-o&list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3&index=9&t=0s",
+                        "publication_date": " mai 2015",
+                        "short_link": "https://youtu.be/2q1Iaa-P2-o",
+                        "time": "5:06",
+                        "title": "Trees 8 | Priority Queue - Binary Heap 2",
+                        "views": "963"
+                    },
+                    {
+                        "description": "What is a Priority Queue. What is a Binary Heap data structure. These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "4",
+                        "link": "https://www.youtube.com//watch?v=1vxwC-bIn18&list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3&index=10&t=0s",
+                        "publication_date": " mai 2015",
+                        "short_link": "https://youtu.be/1vxwC-bIn18",
+                        "time": "7:21",
+                        "title": "Trees 9 | Priority Queue - Binary Heap 3",
+                        "views": "847"
+                    },
+                    {
+                        "description": "What is a Priority Queue. What is a Binary Heap data structure. This is part of my video course: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "5",
+                        "link": "https://www.youtube.com//watch?v=AwfC6Jo_07o&list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3&index=11&t=0s",
+                        "publication_date": " mai 2015",
+                        "short_link": "https://youtu.be/AwfC6Jo_07o",
+                        "time": "6:33",
+                        "title": "Trees 10 | Priority Queue - Binary Heap 4",
+                        "views": "510"
+                    },
+                    {
+                        "description": "Introduction to using Binary Search Trees to provide a key/value Map Abstract Data Type",
+                        "dislikes": "0",
+                        "likes": "1",
+                        "link": "https://www.youtube.com//watch?v=bkF7JWiJ7Ns&list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3&index=12&t=0s",
+                        "publication_date": " jaan 2018",
+                        "short_link": "https://youtu.be/bkF7JWiJ7Ns",
+                        "time": "6:20",
+                        "title": "Trees 11 | Binary Search Trees 1",
+                        "views": "83"
+                    },
+                    {
+                        "description": "start of coding for a Binary Search Tree in Python",
+                        "dislikes": "0",
+                        "likes": "0",
+                        "link": "https://www.youtube.com//watch?v=-tCaFKn7Kig&list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3&index=13&t=0s",
+                        "publication_date": " jaan 2018",
+                        "short_link": "https://youtu.be/-tCaFKn7Kig",
+                        "time": "4:56",
+                        "title": "Trees 12 | Binary Search Trees 2",
+                        "views": "54"
+                    },
+                    {
+                        "description": "The put method of a binary search treeVideo Course link: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "1",
+                        "link": "https://www.youtube.com//watch?v=zSxpj4o9VkM&list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3&index=14&t=0s",
+                        "publication_date": " jaan 2018",
+                        "short_link": "https://youtu.be/zSxpj4o9VkM",
+                        "time": "6:59",
+                        "title": "Trees 13 | Binary Search Trees 3",
+                        "views": "53"
+                    },
+                    {
+                        "description": "BST Get and the first part of deleting a key/valueVideo Course link: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David Ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "0",
+                        "link": "https://www.youtube.com//watch?v=mJTCLJOMw80&list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3&index=15&t=0s",
+                        "publication_date": " jaan 2018",
+                        "short_link": "https://youtu.be/mJTCLJOMw80",
+                        "time": "5:17",
+                        "title": "Trees 14 | Binary Search Tree 4",
+                        "views": "40"
+                    },
+                    {
+                        "description": "Binary Search Tree Delete case where node to be deleted has one childVideo Course link: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "0",
+                        "link": "https://www.youtube.com//watch?v=PBirOnqte8c&list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3&index=16&t=0s",
+                        "publication_date": " jaan 2018",
+                        "short_link": "https://youtu.be/PBirOnqte8c",
+                        "time": "7:52",
+                        "title": "Trees 15 | Binary Search Tree 5",
+                        "views": "41"
+                    },
+                    {
+                        "description": "Continue to cover BST with how we delete a node with two children",
+                        "dislikes": "0",
+                        "likes": "0",
+                        "link": "https://www.youtube.com//watch?v=XTvEHBl-9-I&list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3&index=17&t=0s",
+                        "publication_date": " jaan 2018",
+                        "short_link": "https://youtu.be/XTvEHBl-9-I",
+                        "time": "5:41",
+                        "title": "Trees 16 | Binary Search Trees 6",
+                        "views": "49"
+                    },
+                    {
+                        "description": "More on deletions and the iteration over a BSTThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "0",
+                        "link": "https://www.youtube.com//watch?v=iPrJ3bMzlzQ&list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3&index=18&t=0s",
+                        "publication_date": " jaan 2018",
+                        "short_link": "https://youtu.be/iPrJ3bMzlzQ",
+                        "time": "8:15",
+                        "title": "Trees 17 | Binary Search Trees 7",
+                        "views": "37"
+                    },
+                    {
+                        "description": "Analysis on BST and introduction to AVL TreesVideo Course link: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "1",
+                        "link": "https://www.youtube.com//watch?v=dwcAm80mZoc&list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3&index=19&t=0s",
+                        "publication_date": " jaan 2018",
+                        "short_link": "https://youtu.be/dwcAm80mZoc",
+                        "time": "5:39",
+                        "title": "Trees 18 | AVL Trees 1",
+                        "views": "85"
+                    },
+                    {
+                        "description": "delete balancing though rotationVideo Course link: https://goo.gl/ghFZarCode/Slides link: https://goo.gl/ZNGPMUThese videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" atebook:  https://goo.gl/1GJCgtimages of the ebook and some code from the book are attributed to this book by the Authors Bradley N. Miller and David ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "1",
+                        "link": "https://www.youtube.com//watch?v=VJ6SwyG0qfM&list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3&index=20&t=0s",
+                        "publication_date": " jaan 2018",
+                        "short_link": "https://youtu.be/VJ6SwyG0qfM",
+                        "time": "8:04",
+                        "title": "Trees 19 | AVL Trees 2",
+                        "views": "70"
+                    },
+                    {
+                        "description": "delete rotate cases and calculating new balance",
+                        "dislikes": "0",
+                        "likes": "0",
+                        "link": "https://www.youtube.com//watch?v=gAVu38oNdMU&list=PLtbC5OfOR8apvr9bjZsO_euhdPFpM4eK3&index=21&t=0s",
+                        "publication_date": " jaan 2018",
+                        "short_link": "https://youtu.be/gAVu38oNdMU",
+                        "time": "6:18",
+                        "title": "Trees 20 | AVL Trees 3",
+                        "views": "58"
+                    }
+                ]
+            },
+            {
+                "link": "https://www.youtube.com//playlist?list=PLtbC5OfOR8aqNIkYIrLVy0wLjSiJHwjCz",
+                "title": "7: CS22 - Graphs",
+                "videos": [
+                    {
+                        "description": "Introduction to the Graphs Chapter. What are they and what do you use them for. The official Terminology of Graphs.These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" at ebook:  https://goo.gl/1GJCgtVideo course: https://teklern.blogspot.com/p/blog-p...Code for course: https://github.com/gerryjenkinslb/cs2...Images of the ebook and code here are attributed to the book \"Problem Solving with Algorithms and Data Structures using Python\" by the Authors Bradley N. Miller and David Ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)  License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "2",
+                        "link": "https://www.youtube.com//watch?v=360D2vguaEA&list=PLtbC5OfOR8aqNIkYIrLVy0wLjSiJHwjCz&index=2&t=0s",
+                        "publication_date": "apr 2018",
+                        "short_link": "https://youtu.be/360D2vguaEA",
+                        "time": "6:42",
+                        "title": "Graphs 1 | Intro and Terms",
+                        "views": "377"
+                    },
+                    {
+                        "description": "Formal Graph Math definition and our new Abstract Data TypePlease subscribe at: https://goo.gl/ZgZrZ5These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" at ebook:  https://goo.gl/1GJCgtVideo course: https://teklern.blogspot.com/p/blog-p...Code for course: https://github.com/gerryjenkinslb/cs2...Images of the ebook and code here are attributed to the book \"Problem Solving with Algorithms and Data Structures using Python\" by the Authors Bradley N. Miller and David Ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)  License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "3",
+                        "link": "https://www.youtube.com//watch?v=7WKvsrOpkbE&list=PLtbC5OfOR8aqNIkYIrLVy0wLjSiJHwjCz&index=3&t=0s",
+                        "publication_date": " apr 2018",
+                        "short_link": "https://youtu.be/7WKvsrOpkbE",
+                        "time": "4:58",
+                        "title": "Graphs 2 | Math and ADT",
+                        "views": "134"
+                    },
+                    {
+                        "description": "Covers Matrix and Adjacent List implementation approaches to the Graph Abstract Data Type.Please subscribe at: https://goo.gl/ZgZrZ5These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" at ebook:  https://goo.gl/1GJCgtVideo course: https://teklern.blogspot.com/p/blog-p...Code for course: https://github.com/gerryjenkinslb/cs2...Images of the ebook and code here are attributed to the book \"Problem Solving with Algorithms and Data Structures using Python\" by the Authors Bradley N. Miller and David Ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)  License link: https://goo.gl/m2m1ww",
+                        "dislikes": "0",
+                        "likes": "2",
+                        "link": "https://www.youtube.com//watch?v=L5PBt6guihI&list=PLtbC5OfOR8aqNIkYIrLVy0wLjSiJHwjCz&index=4&t=0s",
+                        "publication_date": " apr 2018",
+                        "short_link": "https://youtu.be/L5PBt6guihI",
+                        "time": "7:36",
+                        "title": "Graphs 3 | Implementation choices",
+                        "views": "159"
+                    },
+                    {
+                        "description": "Implementing Adjacency List Code for Graph ADT in PythonPlease subscribe at: https://goo.gl/ZgZrZ5These videos are to help you when reading the ebook: \"Problem Solving with Algorithms and Data Structures using Python\" at ebook:  https://goo.gl/1GJCgtVideo course: https://teklern.blogspot.com/p/blog-p...Code for course: https://github.com/gerryjenkinslb/cs2...Images of the ebook and code here are attributed to the book \"Problem Solving with Algorithms and Data Structures using Python\" by the Authors Bradley N. Miller and David Ranum under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC-BY-NC-SA)  License link: https://goo.gl/m2m1ww",
+                        "dislikes": "1",
+                        "likes": "58",
+                        "link": "https://www.youtube.com//watch?v=OmL2DgBj45Q&list=PLtbC5OfOR8aqNIkYIrLVy0wLjSiJHwjCz&index=5&t=0s",
+                        "publication_date": " apr 2018",
+                        "short_link": "https://youtu.be/OmL2DgBj45Q",
+                        "time": "7:10",
+                        "title": "Graphs 4 | Implementation Graph Python Code",
+                        "views": "5063"
+                    },
+                    {
+                        "description": "Animation of 157 vertex graph being traversed with the Graph Breadth First Search (BFS) Algorithm set to the music of \"fight of the Bumble Bee\". This is done in pygame in python on 4K display in Ubuntu Linux. I hope this is a useful teaching tool.",
+                        "dislikes": "3",
+                        "likes": "79",
+                        "link": "https://www.youtube.com//watch?v=x-VTfcmrLEQ&list=PLtbC5OfOR8aqNIkYIrLVy0wLjSiJHwjCz&index=6&t=0s",
+                        "publication_date": " juuli 2018",
+                        "short_link": "https://youtu.be/x-VTfcmrLEQ",
+                        "time": "1:39",
+                        "title": "Animation of Graph BFS Algorithm set to music",
+                        "views": "4820"
+                    }
+                ]
+            }
+        ],
+        "title": "Python Data Structures and Algorithms Class - CS22"
+    }
+]
