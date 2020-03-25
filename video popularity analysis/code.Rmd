@@ -96,19 +96,19 @@ gev = read.csv("DEvideos.csv")
 
 ```{r}
 
-gb <- tail(fread("GBvideos.csv",encoding = "UTF-8"),20000)
+gb <- tail(fread("GBvideos.csv",encoding = "UTF-8"))
 gb[,"Location":="GB"]
 
-fr <- tail(fread("FRvideos.csv",encoding = "UTF-8"),20000)
+fr <- tail(fread("FRvideos.csv",encoding = "UTF-8"))
 fr[,"Location":="FR"]
 
-ca <- tail(fread("CAvideos.csv",encoding = "UTF-8"),20000)
+ca <- tail(fread("CAvideos.csv",encoding = "UTF-8"))
 ca[,"Location":="CA"]
 
-us <- tail(fread("USvideos.csv",encoding = "UTF-8"),20000)
+us <- tail(fread("USvideos.csv",encoding = "UTF-8"))
 us[,"Location":="US"]
 
-de <- tail(fread("DEvideos.csv",encoding = "UTF-8"),20000)
+de <- tail(fread("DEvideos.csv",encoding = "UTF-8"))
 de[,"Location":="DE"]
 
 videos <- as.data.table(rbind(gb,fr,ca,us,de))
