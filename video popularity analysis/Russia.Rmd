@@ -1,0 +1,154 @@
+---
+title: "Youtube video Analysis Cross Cultural"
+author: "Ismayil"
+date: "25 March 2020"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r global_options, include=FALSE, cache=FALSE}
+library(knitr)
+opts_chunk$set(echo=TRUE, 
+               warning=FALSE, 
+               message=FALSE,
+               cache = TRUE,
+               include = TRUE,
+               results = 'show',
+               error = TRUE)
+```
+
+
+
+
+## Loading the requires libraries
+
+```{r}
+library(rmarkdown)
+library(rjson)
+library(jsonlite)
+library(pander)
+library(cowplot)
+library(tidyverse)
+library(magrittr)
+library(dplyr)
+library(treemap)
+library(scales)
+library(ggplot2)
+library(gplots)
+library(tm)
+library(SnowballC)
+library(RSentiment)
+library(data.table)
+library(dplyr)
+library(DT)
+library(lubridate)
+library(RColorBrewer)
+library(plotrix)
+library(corrplot)
+library(ggdendro)
+library(ggrepel)
+library(wordcloud)
+library(tidytext)
+library(stringr)
+library(tm)
+library(sentimentr)
+library(RSentiment)
+```
+
+## Loading the Data
+
+```{r}
+
+gbv = read.csv("MXvideos.csv")
+
+
+```
+
+
+# Reading and preparing data
+
+```{r}
+
+gb <- tail(fread("MXvideos.csv",encoding = "UTF-8"))
+gb[,"Location":="MX"]
+
+
+
+videos <- as.data.table(rbind(gb))
+videos$trending_date <- ydm(videos$trending_date)
+videos$publish_time <- ymd(substr(videos$publish_time,start = 1,stop = 10))
+videos$dif_days <- videos$trending_date-videos$publish_time
+```
+## First lets see the CORRELATION
+
+```{r}
+corrplot(corr = cor(videos[,c("category_id","views","likes","dislikes","comment_count"),with=F]))
+```
+
+* We can see that between views and likes we have a high correlation, I thought that we will have a similar correlation between views and dislikes, but is almost half of the like correlation.
+
+```{r}
+gbv = gbv %>% mutate(category = case_when(
+  category_id== '1' ~ 'Film and Animation',
+  category_id== '2' ~ 'Autos and Vehicles',
+  category_id== '10'~ 'Music',
+  category_id== '15'~ 'Pets and Animals',
+  category_id== '17'~ 'Sports',
+  category_id== '18'~ 'Short Movies',
+  category_id== '19'~ 'Travel and Events',
+  category_id== '20'~'Gaming',
+  category_id== '21'~'Videoblogging',
+  category_id== '22'~ 'People and Blogs',
+  category_id== '23'~ 'Comedy',
+  category_id== '24'~ 'Entertainment',
+  category_id== '25'~ 'News and Politics',
+  category_id== '26'~ 'How to and Style',
+  category_id== '27'~ 'Education',
+  category_id== '28'~ 'Science and Technology',
+  category_id== '29'~ 'Nonprofits & Activism',
+  category_id== '30'~ 'Movies',
+  category_id== '31'~ 'Anime/Animation',
+  category_id== '32'~ 'Action/Adventure',
+  category_id== '33'~ 'Classics',
+  category_id== '34'~ 'Comedy',
+  category_id== '35'~ 'Documentary',
+  category_id== '36'~ 'Drama',
+  category_id== '37'~ 'Family',
+  category_id== '38'~ 'Foreign',
+  category_id== '39'~ 'Horror',
+  category_id== '40'~ 'Sci-Fi/Fantasy',
+  category_id== '41'~ 'Thriller',
+  category_id== '42'~ 'Shorts',
+  category_id== '43'~ 'Shows',
+  category_id== '44'~ 'Trailers'))
+```
+
+## Views per Category in Great Britian
+
+```{r}
+ggplot(gbv,aes(category,views))+geom_boxplot(fill = "black",color = "orange")+scale_y_log10()+
+  theme(text = element_text(size=10),axis.text.x = element_text(angle=90, hjust=1))
+```
+
+## Top 10 popular Categories in Russia
+
+```{r}
+GB_Top10_Popular_Categories = gbv %>% count(category)%>% 
+  arrange(desc(n))%>% head(10)%>%rename("No.of.Videos" = n)
+
+ggplot(GB_Top10_Popular_Categories,aes(category,No.of.Videos))+
+  geom_bar(stat = "identity",aes(fill=category))+theme(text = element_text(size=10),
+                                                       axis.text.x = element_text(angle=90, hjust=1))
+```
+
+
+
+
+
+
