@@ -147,12 +147,13 @@ durations
 
 ```
 ```{r}
-videos<-read.csv("ALLComedy.csv")
 
+require(data.table)
+videos <- tail(fread("USvideos.csv",encoding = "UTF-8"),10000)
 durations = lapply(as.character(videos$video_id), function(x){
   ((get_video_details(video_id = x, part = "contentDetails"))$items)[[1]]$contentDetails$duration
 })
 durations
-
+view(durations)
 ```
 

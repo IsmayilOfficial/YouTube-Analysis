@@ -113,7 +113,7 @@ head(d, 10)
 ```
 
 ```{r}
-barplot(d[1:10,]$freq, las = 2, names.arg = d[1:10,]$word,
+barplot(d[1:20,]$freq, las = 2, names.arg = d[1:20,]$word,
         col ="green", main ="Most frequent words",
         ylab = "Word frequencies")
 ```
