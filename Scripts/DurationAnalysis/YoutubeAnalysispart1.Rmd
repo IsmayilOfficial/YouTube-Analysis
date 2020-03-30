@@ -156,4 +156,32 @@ durations = lapply(as.character(videos$video_id), function(x){
 durations
 view(durations)
 ```
+```{r}
+
+library(ggplot2)
+#videos<-read.csv("movies_duration.csv")
+dat<- read.csv('JPTrend27.03.2020.csv')
+#dat<- rbind(videos,dat)
+#write.csv(dat,"Film&Animation.csv")
+dat$Publisher<- NULL
+dat$Time <- NULL
+dat <- na.omit(dat)
+
+
+     
+
+
+
+## Basic histogram from the vector "rating". Each bin is .5 wide.
+## These both result in the same output:
+ #ggplot(dat, aes(x=duration)) + geom_histogram(binwidth=.5)
+# # # qplot(dat$rating, binwidth=.5)
+# # 
+# # # Draw with black outline, white fill
+#  ggplot(dat, aes(x=duration)) +
+#     geom_histogram(binwidth=.5, colour="black", fill="white")
+
+# Density curve
+ggplot(dat, aes(x=Duration)) + geom_density()
+```
 
